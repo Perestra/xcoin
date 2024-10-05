@@ -16,17 +16,17 @@ Este projeto utiliza as seguintes dependências:
 - Local Storage
 
 # RoadMap
-[] Desenvolver página inicial
-[] Desenvolver página de login
-    [] Realizar validações de formulário utilizando Yup
-[] Desenvolver página de criar conta
-    [] Realizar validações de formulário utilizando Yup
-[] Desenvolver página de esqueci minha senha
-    [] Realizar validações de formulário utilizando Yup
-[] Desenvolver a página de variações 
-    [] Utilizar Chart.js para criação dos gráficos
-[] Desenvolver a página de Conversão
-    [] Request na API via Axios
-[] Desenvolver página de Favoritos
-[] Desenvolver página de Erro
-[] Responsividade
+- [ ] Desenvolver página inicial
+- [ ] Desenvolver página de login
+    - [ ] Realizar validações de formulário utilizando Yup
+- [ ] Desenvolver página de criar conta
+    - [ ] Realizar validações de formulário utilizando Yup
+- [ ] Desenvolver página de esqueci minha senha
+    - [ ] Realizar validações de formulário utilizando Yup
+- [ ] Desenvolver a página de variações 
+    - [ ] Utilizar Chart.js para criação dos gráficos
+- [ ] Desenvolver a página de Conversão
+    - [ ] Request na API via Axios
+- [ ] Desenvolver página de Favoritos
+- [ ] Desenvolver página de Erro
+- [ ] Responsividade
