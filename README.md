@@ -11,9 +11,21 @@ Este projeto utiliza a seguinte API:
 
 Este projeto utiliza as seguintes dependências:
 - React Icon
+```js
+npm install react-icons --save
+```
 - React Router DOM
+```js
+npm i react-router-dom
+```
 - Sass
+```js
+npm i sass
+```
 - Local Storage
+```js
+npm i use-local-storage
+```
 
 # RoadMap
 - [ ] Desenvolver página inicial
