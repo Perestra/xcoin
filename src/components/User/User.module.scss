@@ -1,0 +1,36 @@
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &__logo {
+        width: 40px;
+        height: 40px;
+        background-color: var(--Green);
+        border-radius: 50%;
+        
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        & > span {
+            color: var(--White);
+            font-family: "Bruno Ace SC", sans-serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+        }
+    }
+
+    &__name {
+        color: var(--White);
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    &__icon {
+        width: 20px;
+        height: 20px;
+        color: var(--White);
+        cursor: pointer;
+    }
+}
