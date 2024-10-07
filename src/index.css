@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&display=swap');
 
 * {
     margin: 0;
@@ -6,4 +7,17 @@
     box-sizing: border-box;
 
     font-family: "Lato", sans-serif;
+}
+
+.hidde {
+    display: none;
+}
+
+:root {
+    --White: #F1F1F1;
+    --LightGreen: #8CC7AB;
+    --Green: #44A06F;
+    --LightBlue: #3D4750;
+    --LightGrey: #898989;
+    --DarkGrey: #323232;
 }
