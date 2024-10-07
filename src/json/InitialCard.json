@@ -1,0 +1,40 @@
+{
+    "Initial": [
+        {
+            "id": 1,
+            "image": {
+                "url": "initial1",
+                "alt": "Imagem de um homem branco mexendo no celular com um laptop ao lado."
+            },
+            "title": "Taxas de Câmbio em Tempo Real",
+            "description": "Veja as taxas de câmbio mais recentes e atualizadas para as principais moedas internacionais. Mencione a frequência de atualização e a confiabilidade das fontes de dados."
+        },
+        {
+            "id": 2,
+            "image": {
+                "url": "initial2",
+                "alt": "Imagem de uma mulher negra mexendo na calculadora e com um laptop na frente."
+            },
+            "title": "Calculadora de Conversão Rápida",
+            "description": "Você pode inserir valores para converter entre moedas diferentes de forma fácil e intuitiva, com resultados imediatos."
+        },
+        {
+            "id": 3,
+            "image": {
+                "url": "initial3",
+                "alt": "Imagem de cima de uma mulher negra e um papel com três tipos de gráfico: Barra, pizza e linha. E a mulher está apontando para o gráfico de pizza com uma caneta." 
+            },
+            "title": "Histórico de Taxas e Gráficos",
+            "description": "Visualize gráficos e informações sobre a variação das taxas de câmbio ao longo do tempo, facilitando a compreensão das tendências de mercado para decisões mais informadas."
+        },
+        {
+            "id": 4,
+            "image": {
+                "url": "initial4",
+                "alt": "Imagem mostra um homem branco sorrindo segurando 3 cédulas de dinheiro." 
+            },
+            "title": "Favorite de Moedas Preferidas",
+            "description": "Salve suas moedas preferidas em uma lista de favoritos, facilitando o acesso rápido e as conversões frequentes, além de simplificar o acompanhamento das taxas de câmbio dessas moedas específicas."
+        }
+    ]
+}

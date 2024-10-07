@@ -1,0 +1,19 @@
+{
+    "Header": [
+        {   
+            "id":1,
+            "name": "Variação",
+            "url": "/variacao"
+        },
+        {   
+            "id":2,
+            "name": "Conversão",
+            "url": "/conversao"
+        },
+        {   
+            "id":3,
+            "name": "Favoritos",
+            "url": "/favoritos"
+        }
+    ]
+}
