@@ -1,6 +1,7 @@
+import { Routers } from '../Routers'
 
 export const App = () => {
   return (
-    <div>App</div>
+    <Routers />
   )
 }
