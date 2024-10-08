@@ -1,0 +1,47 @@
+.currency {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: top;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    &__type {
+        background-color: var(--LightGreen);
+        border-radius: 5px;
+    }
+
+    &__icon {
+        width: 26px;
+        height: 26px;
+        color: var(--White);
+        margin: 10px;
+    }
+
+    &__content {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+
+        gap: 15px;
+
+        & > h1 {
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--DarkGrey);
+        }
+    
+        & > p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--LightGrey);
+        }
+    }
+}

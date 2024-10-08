@@ -1,0 +1,41 @@
+{
+    "Currency": [
+        {
+            "id":1,
+            "title": "Real Brasileiro",
+            "description": "A moeda oficial do Brasil, introduzida em 1994 como parte do Plano Real.",
+            "icon": "TbCurrencyReal"
+        },
+        {
+            "id":2,
+            "title": "Dólar Americano",
+            "description": "A moeda oficial dos Estados Unidos, considerada a principal moeda de reserva internacional.",
+            "icon": "TbCurrencyDollar"
+        },
+        {
+            "id":3,
+            "title": "Libra Esterlina",
+            "description": "A moeda oficial do Reino Unido, uma das mais antigas em uso contínuo.",
+            "icon": "TbCurrencyPound"
+        },
+        {
+            "id":4,
+            "title": "Franco Suiço",
+            "description": "A moeda oficial da Suíça e de Liechtenstein. Conhecida por sua estabilidade, é amplamente utilizada em transações financeiras globais.",
+            "icon": "TbCurrencyFrank"
+            
+        },
+        {
+            "id":5,
+            "title": "Euro",
+            "description": "A moeda oficial da zona do euro, usada por 19 dos 27 países da União Europeia. É a segunda moeda mais utilizada globalmente.",
+            "icon": "TbCurrencyEuro"
+        },
+        {
+            "id":6,
+            "title": "Iene",
+            "description": "A moeda oficial do Japão, uma das principais moedas no mercado de câmbio internacional.",
+            "icon": "TbCurrencyYen"
+        }
+    ]
+}
