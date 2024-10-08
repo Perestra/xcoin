@@ -1,0 +1,36 @@
+.footer {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 20px;
+    padding: 25px 10px;
+    background-color: var(--LightBlue);
+
+    & > span {
+        color: var(--White);
+        font-size: 1rem;
+        font-weight: 500;
+    }
+
+    &__media {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 30px;
+
+        & > a {
+            color: var(--White);
+            font-size: 1rem;
+            font-weight: 500;
+            text-decoration: none;
+        }
+    }
+}
