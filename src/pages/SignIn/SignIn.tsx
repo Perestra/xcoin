@@ -1,12 +1,19 @@
 import styles from './SignIn.module.scss'
 import background from '../../assets/png/account.png'
 import logo from '../../assets/svg/white_logo.svg'
+import SigninInput from '../../json/SigninInput.json'
 
 import { Button } from '../../components/Button/Button'
 import { Link } from 'react-router-dom'
-import { Field, Form, Formik } from 'formik'
+import { Form, Formik } from 'formik'
+import { initialValues, signinSchema, SigninType } from '../../utils/SigninForm'
+import { Input } from '../../components/Input/Input'
+import { InputType } from '../../types/InputType'
 
-export const SignIn = () => {
+export const SignIn: React.FC = () => {
+
+  const form = SigninInput as { Input: InputType[] };
+
   return (
     <main className={styles.main}>
         <div className={styles.main__images}>
@@ -19,28 +26,25 @@ export const SignIn = () => {
                     <h1>Acesse sua conta da XCoin!</h1>
                     <span>Coloque as informações solicitadas abaixo</span>
                 </div>
-                <Formik 
-                    initialValues={{ email: '', color: 'red', firstName: '', lastName: '' }}
+                <Formik<SigninType>
+                    initialValues={initialValues}
+                    validationSchema={signinSchema}
                     onSubmit={values => console.log(values)}
                 >
-                    <Form className={styles.main__form}>
-                        <Field 
-                            className={styles.main__input}
-                            name='email'
-                            type='email'
-                            placeholder='Digite sua conta de e-mail'
-                        />
-                        <Field 
-                            className={styles.main__input}
-                            name='password'
-                            type='password'
-                            placeholder='Digite sua senha'
-                        />
-                        <Button
-                            color='green'
-                            text='Entrar'
-                        />
+                    {({errors}) => (
+                        <Form className={styles.main__form}>
+                            {form.Input.map((input: InputType) => (
+                                <Input 
+                                    key={input.id}
+                                    name={input.name}
+                                    type={input.type} 
+                                    placeholder={input.placeholder}
+                                    error={errors[input.name]}
+                                />    
+                            ) )}
+                        <Button text='Entrar' color='green' type='submit' path=''/>
                     </Form>
+                    )}
                 </Formik>
                 <div className={styles.main__extras}>
                     <div className={styles.main__forgot}>
@@ -48,10 +52,7 @@ export const SignIn = () => {
                     </div>
                     <div className={styles.main__create}>
                         <span>Não possui uma conta?</span>
-                        <Button 
-                            color='blue'
-                            text='Registre-se'
-                        />
+                        <Button color='blue' text='Registre-se' type='button' path='/createaccount'/>
                     </div>
                 </div>
             </aside>
