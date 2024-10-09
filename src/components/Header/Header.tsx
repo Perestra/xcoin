@@ -19,7 +19,7 @@ export const Header: React.FC<Props> = ({classNav, classUser, classLogin}) => {
         <Logo src={LogoColored}/>
         <NavLink className={classNav}/>
         <User className={classUser}/>
-        <span className={`${styles.header__login} ${classLogin}`}><Link to="*" role='link' aria-label='Entre ou cadastre-se' >Entre ou cadastre-se</Link></span>  
+        <span className={`${styles.header__login} ${classLogin}`}><Link to="/signin" role='link' aria-label='Entre ou cadastre-se' >Entre ou cadastre-se</Link></span>  
       </div>
     </header>
   )
