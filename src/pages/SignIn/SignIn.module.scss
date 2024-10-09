@@ -1,0 +1,136 @@
+.main{
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+
+    &__images {
+        position: relative;
+
+        width: 100%;
+        max-width: 1280px;
+        height: 100vh;
+    }
+
+    &__logo {
+        position: absolute;
+        top: 35%;
+        left: 35%;
+
+        width: 100%;
+        max-width: 55%;
+        height: auto;
+    }
+
+    &__background {
+        width: 100%;
+        max-width: 1280px;
+        height: 100vh;
+        object-fit: cover;
+    }
+
+    &__section {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+
+        margin: auto;
+        padding: 0 10px;
+    }
+
+    &__aside {
+        width: 100%;
+        height: auto;
+    }
+
+    &__title {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+
+        & > h1 {
+            font-size: 1.625rem;
+            font-weight: 700;
+            color: var(--DarkGrey);
+        }
+
+        & > span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--LightGrey);
+        }
+    }
+
+    &__form {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+
+        margin-top: 70px;
+    }
+
+    &__input {
+        width: 100%;
+        height: auto;
+
+        padding: 10px 0;
+        border: none;
+        outline: none;
+        background: none;
+        border-bottom: 1px solid var(--Green);
+
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--LightGrey);
+
+        &::placeholder {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--LightGrey);
+        }
+    }
+
+    &__extras {
+        width: 100%;
+        height: auto;
+    }
+    
+    &__forgot {
+        width: 100%;
+        height: auto;
+        
+        text-align: center;
+        padding: 25px 0;
+        border-bottom: 1px dotted var(--Green);
+
+        & > span {
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--DarkGrey);
+
+            & > a {
+                color: var(--Green);
+                text-decoration: none;
+                font-weight: 600;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+
+    &__create {
+        width: 100%;
+        height: auto;
+        margin-top: 25px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+}
