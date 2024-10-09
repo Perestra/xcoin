@@ -11,7 +11,7 @@ export const Footer = () => {
       <Logo src={whiteLogo} />
       <div className={styles.footer__media}>
         {social.Media.map( link => (
-          <Link key={link.id} to={link.url}>{link.name}</Link>
+          <Link key={link.id} to={link.url} target='_blank'>{link.name}</Link>
         ) )}    
       </div>
       <span>© XCoin. Desenvolvido por <strong>Danilo Perestrelo</strong></span>
