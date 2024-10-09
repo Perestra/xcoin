@@ -14,7 +14,7 @@ export const Initial: React.FC = () => {
   return (
     <div className={styles.initial}>
       <div className={styles.initial__background}>
-        <Header classUser='hidde' classNav='hidde' />
+        <Header classNav='hidde' classUser='hidde'/>
         <div className={styles.initial__content}>
           <h1>Conectando o mundo, moeda por moeda</h1>
           <Button text='Abra sua conta!' color='green'/>
