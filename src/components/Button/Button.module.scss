@@ -5,14 +5,18 @@
 
     outline: none;
     border: none;
-    border-radius: 3px;
+    border-radius: 5px;
     padding: 10px 15px;
     cursor: pointer;
 
-    & > span {
+    & > span, a {
         color: var(--White);
         font-size: 1rem;
         font-weight: 500;
+    }
+
+    & > a {
+        text-decoration: none;
     }
 
     &__icon {
