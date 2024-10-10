@@ -10,9 +10,17 @@ import { Link } from 'react-router-dom'
 import { InputType } from '../../types/InputType'
 import { initialValues, CreateAccountSchema, CreateAccountType } from '../../utils/CreateAccountForm'
 
+import { useAxios } from '../../hooks/useAxios'
+import { AwsomeAPI } from '../../api/EconomiaAwsomeAPI'
+import { SelectInput } from '@/components/SelectInput/SelectInput'
+import { useMemo } from 'react'
+
 export const CreateAccount = () => {
-  
+
   const form = CreateAccountInput as {Input: InputType[]}
+
+  const { data, loading } = useAxios<Record<string, string>>(AwsomeAPI, 'get', '/available/uniq')
+  const list = useMemo( () => Object.entries(data??{}).map( ([key, value]) => ({label: value, value: key}) ), [data] )
 
   return (
     <main className={styles.main}>
@@ -22,25 +30,29 @@ export const CreateAccount = () => {
                     <h1>Crie sua conta da XCoin!</h1>
                     <span>Coloque as informações solicitadas abaixo</span>
                 </div>
-                <Formik<CreateAccountType>
-                    initialValues={initialValues}
-                    validationSchema={CreateAccountSchema}
-                    onSubmit={values => console.log(values)}
-                >
-                    {({errors}) => (
-                        <Form className={styles.main__form}>
-                            {form.Input.map((input: InputType) => (
-                                <Input 
-                                    name={input.name}
-                                    type={input.type} 
-                                    placeholder={input.placeholder}
-                                    error={errors[input.name]}
-                                />    
-                            ) )}
-                        <Button text='Entrar' color='green' type='submit' path=''/>
-                    </Form>
-                    )}
-                </Formik>
+                { !loading &&
+                    <Formik<CreateAccountType>
+                        initialValues={initialValues}
+                        validationSchema={CreateAccountSchema}
+                        onSubmit={values => console.log(values)}
+                    >
+                        {({errors}) => (
+                            <Form className={styles.main__form}>
+                                {form.Input.map((input: InputType) => (
+                                    <Input 
+                                        key={input.id}
+                                        name={input.name}
+                                        type={input.type} 
+                                        placeholder={input.placeholder}
+                                        error={errors[input.name]}
+                                    />    
+                                ))}
+                                    <SelectInput data={list} />
+                                    <Button text='Entrar' color='green' type='submit' path=''/>
+                            </Form>
+                        )}
+                    </Formik>
+                }
                 <div className={styles.main__extras}>
                     <div className={styles.main__forgot}>
                         <span>Já tem uma conta? <Link to="/signin">Clique aqui!</Link></span>
