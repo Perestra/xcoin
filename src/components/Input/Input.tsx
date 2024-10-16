@@ -1,26 +1,28 @@
 import styles from './Input.module.scss'
 
-import { Field } from 'formik'
+import { Field, useField } from 'formik'
 import { IoAlertCircleOutline } from "react-icons/io5";
 
 type Props = { 
-    name: string;
-    type: string;
-    placeholder: string;
-    error: string | undefined;
+  name: string;
+  type: string;
+  placeholder: string;
 }
 
-export const Input: React.FC<Props> = ({name, type, placeholder, error}) => {
+export const Input: React.FC<Props> = ({name, type, placeholder}) => {
+
+  const [field, meta] = useField(name)
+
   return (
-    <div className={`${styles.input} ${typeof error === "string" && styles.error}`}>
-        <Field 
-            className={styles.input__area}
-            name={name}
-            type={type}
-            placeholder={placeholder}
-        />  
-        {typeof error === "string" && <IoAlertCircleOutline className={styles.input__icon} />}
-        <span>{error}</span>  
+    <div className={`${styles.input} ${meta.touched && meta.error? styles.error: ""}`}>
+      <Field 
+        className={styles.input__area}
+        type={type}
+        placeholder={placeholder}
+        {...field}
+      />  
+      {meta.touched && meta.error? <IoAlertCircleOutline className={styles.input__icon}/>: null}
+      {meta.touched && meta.error? <span>{meta.error}</span>: null}
     </div>
   )
 }

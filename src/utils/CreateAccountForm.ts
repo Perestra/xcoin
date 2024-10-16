@@ -5,6 +5,8 @@ export type CreateAccountType = {
     username: string;
     email: string;
     password: string;
+    confirmPassword: string
+    currency: string;
 }
 
 const initialValues = {
@@ -12,7 +14,8 @@ const initialValues = {
     username: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    currency:''
 }
 
 const CreateAccountSchema = object({
@@ -33,9 +36,12 @@ const CreateAccountSchema = object({
         .min(5, "É necessário ter, no mínimo, 5 caracteres."),
     confirmPassword: 
         string()
-        .required("É necessário inserir uma senha.")
+        .required("É necessário confirmar sua senha.")
         .min(5, "É necessário ter, no mínimo, 5 caracteres.")
-        .oneOf([ref("password")], "As senhas devem ser iguais.")
+        .oneOf([ref("password")], "As senhas devem ser iguais."),
+    currency: 
+        string()
+        .required("É necessário selecionar sua moeda principal")
 })
 
 export { initialValues, CreateAccountSchema }
