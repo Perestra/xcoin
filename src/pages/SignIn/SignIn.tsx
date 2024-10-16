@@ -1,25 +1,16 @@
 import styles from './SignIn.module.scss'
-import background from '../../assets/png/account.png'
 import logo from '../../assets/svg/white_logo.svg'
-import SigninInput from '../../json/SigninInput.json'
 
 import { Button } from '../../components/Button/Button'
 import { Link } from 'react-router-dom'
 import { Form, Formik } from 'formik'
 import { initialValues, signinSchema, SigninType } from '../../utils/SigninForm'
 import { Input } from '../../components/Input/Input'
-import { InputType } from '../../types/InputType'
 
 export const SignIn: React.FC = () => {
-
-  const form = SigninInput as { Input: InputType[] };
-
   return (
     <main className={styles.main}>
-        <div className={styles.main__images}>
-            <img className={styles.main__logo} src={logo} alt="Logo da XCoin branca com o X e o C maiúsculo." />
-            <img className={styles.main__background} src={background} alt="Background com fundo verde" />
-        </div>
+        {/* <img className={styles.main__logo} src={logo} alt="Logo da XCoin branca com o X e o C maiúsculo." /> */}
         <section className={styles.main__section}>
             <aside className={styles.main__aside}>
                 <div className={styles.main__title}>
@@ -31,20 +22,21 @@ export const SignIn: React.FC = () => {
                     validationSchema={signinSchema}
                     onSubmit={values => console.log(values)}
                 >
-                    {({errors}) => (
-                        <Form className={styles.main__form}>
-                            {form.Input.map((input: InputType) => (
-                                <Input 
-                                    key={input.id}
-                                    name={input.name}
-                                    type={input.type} 
-                                    placeholder={input.placeholder}
-                                    error={errors[input.name]}
-                                />    
-                            ) )}
+                    <Form className={styles.main__form}>
+                        <Input 
+                            key={1}
+                            name='email'
+                            type='email'
+                            placeholder='Digite sua conta de e-mail'
+                        />    
+                        <Input 
+                            key={2}
+                            name='password'
+                            type='password'
+                            placeholder='Digite sua senha'
+                        />
                         <Button text='Entrar' color='green' type='submit' path=''/>
                     </Form>
-                    )}
                 </Formik>
                 <div className={styles.main__extras}>
                     <div className={styles.main__forgot}>
