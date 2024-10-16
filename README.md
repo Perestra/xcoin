@@ -28,11 +28,11 @@ npm i use-local-storage
 ```
 
 # RoadMap
-- [ ] Desenvolver página inicial
-- [ ] Desenvolver página de login
-    - [ ] Realizar validações de formulário utilizando Yup
-- [ ] Desenvolver página de criar conta
-    - [ ] Realizar validações de formulário utilizando Yup
+- [X] Desenvolver página inicial
+- [X] Desenvolver página de login
+    - [X] Realizar validações de formulário utilizando Yup
+- [X] Desenvolver página de criar conta
+    - [X] Realizar validações de formulário utilizando Yup
 - [ ] Desenvolver página de esqueci minha senha
     - [ ] Realizar validações de formulário utilizando Yup
 - [ ] Desenvolver a página de variações 
