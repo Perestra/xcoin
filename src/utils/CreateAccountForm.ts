@@ -1,13 +1,6 @@
 import { object, ref, string } from "yup"
-
-export type CreateAccountType = {
-    fullName: string;
-    username: string;
-    email: string;
-    password: string;
-    confirmPassword: string
-    currency: string;
-}
+import { isValidInputData } from "@/accounts/formValidation"
+import { AccountsType } from "@/types/AccountsType"
 
 const initialValues = {
     fullName: '',
@@ -18,18 +11,21 @@ const initialValues = {
     currency:''
 }
 
-const CreateAccountSchema = object({
+const CreateAccountSchema = (accounts: AccountsType[]) => 
+object({
     fullName:
         string()
         .required("É necessário inserir seu nome completo."),
     username:
         string()
         .required("É necessário inserir seu usuário.")
-        .max(16, "É necessário ter, no máximo, 16 caracteres."),
+        .max(16, "É necessário ter, no máximo, 16 caracteres.")
+        .test('validUsername', "Já existe uma conta com esse usuário", value => !isValidInputData(value, 'username', accounts)),
     email: 
         string()
         .required("É necessário inserir um e-mail.")
-        .email("É necessário digitiar um e-mail válido."),
+        .email("É necessário digitiar um e-mail válido.")
+        .test('validEmail', "Já existe uma conta com esse e-mail", value => !isValidInputData(value, 'email', accounts)),
     password: 
         string()
         .required("É necessário inserir uma senha.")
