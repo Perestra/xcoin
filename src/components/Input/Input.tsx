@@ -12,7 +12,7 @@ type Props = {
 export const Input: React.FC<Props> = ({name, type, placeholder}) => {
 
   const [field, meta] = useField(name)
-
+  
   return (
     <div className={`${styles.input} ${meta.touched && meta.error? styles.error: ""}`}>
       <Field 
