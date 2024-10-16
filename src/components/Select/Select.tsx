@@ -17,7 +17,7 @@ export const Select: React.FC<Props> = ({ name, options, placeholder }) => {
   const [field, meta] = useField(name)
 
   return (
-    <div className={`${styles.select} ${meta.error? styles.error: ""}`}>
+    <div className={`${styles.select} ${meta.touched && meta.error? styles.error: ""}`}>
       <select 
         className={styles.select__container} 
         {...field}
