@@ -6,18 +6,19 @@ import { Input } from '../../components/Input/Input'
 import { Select } from '../../components/Select/Select'
 import { Button } from '../../components/Button/Button'
 import { Link } from 'react-router-dom'
-import { initialValues, CreateAccountSchema, CreateAccountType } from '../../utils/CreateAccountForm'
+import { initialValues, CreateAccountSchema } from '../../utils/CreateAccountForm'
 import { useAxios } from '../../hooks/useAxios'
 import { AwsomeAPI } from '../../api/EconomiaAwsomeAPI'
 import { useMemo } from 'react'
-import { useAccountContext } from '../../hooks/useAccountContext'
+import { CreateAccountType } from '../..//types/CreateAccountType'
+import { createAccount } from '@/accounts/createUserAccount'
+import { useAccountContext } from '@/hooks/useAccountContext'
 
 export const CreateAccount: React.FC = () => {
 
+  const { accounts, setAccounts } = useAccountContext()
   const { data, loading } = useAxios<Record<string, string>>(AwsomeAPI, 'get', '/available/uniq')
   const currencyList = useMemo( () => Object.entries(data??{}).map( ([key, value]) => ({label: value, value: key}) ), [data] )
-
-  const context = useAccountContext()
 
   return (
     <main className={styles.main}>
@@ -30,8 +31,8 @@ export const CreateAccount: React.FC = () => {
                 { !loading &&
                     <Formik<CreateAccountType>
                         initialValues={initialValues}
-                        validationSchema={CreateAccountSchema}
-                        onSubmit={values => console.log(values)}
+                        validationSchema={CreateAccountSchema(accounts)}
+                        onSubmit={data => createAccount(data, accounts, setAccounts)}
                     >
                         <Form className={styles.main__form}>
                             <Input 
