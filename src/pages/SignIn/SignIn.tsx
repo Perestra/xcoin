@@ -4,10 +4,16 @@ import logo from '../../assets/svg/white_logo.svg'
 import { Button } from '../../components/Button/Button'
 import { Link } from 'react-router-dom'
 import { Form, Formik } from 'formik'
-import { initialValues, signinSchema, SigninType } from '../../utils/SigninForm'
+import { initialValues, signinSchema } from '../../utils/SigninForm'
 import { Input } from '../../components/Input/Input'
+import { SigninType } from '@/types/SignInType'
+import { useAccountContext } from '@/hooks/useAccountContext'
+import { isValidUser } from '@/accounts/signInUser'
 
 export const SignIn: React.FC = () => {
+
+  const { accounts } = useAccountContext()
+
   return (
     <main className={styles.main}>
         {/* <img className={styles.main__logo} src={logo} alt="Logo da XCoin branca com o X e o C maiúsculo." /> */}
@@ -20,7 +26,7 @@ export const SignIn: React.FC = () => {
                 <Formik<SigninType>
                     initialValues={initialValues}
                     validationSchema={signinSchema}
-                    onSubmit={values => console.log(values)}
+                    onSubmit={(data, formikHelpers) => isValidUser(data, formikHelpers, accounts)}
                 >
                     <Form className={styles.main__form}>
                         <Input 
