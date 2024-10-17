@@ -4,7 +4,7 @@ import styles from './Button.module.scss'
 type Props = {
     icon?: React.ElementType;
     text?: string;
-    path: string;
+    path?: string;
     color: string;
     type: "button" | "submit";
 }
