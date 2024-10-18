@@ -5,7 +5,7 @@ import { Form, Formik } from 'formik'
 import { Input } from '../../components/Input/Input'
 import { Select } from '../../components/Select/Select'
 import { Button } from '../../components/Button/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { initialValues, CreateAccountSchema } from '../../utils/CreateAccountForm'
 import { useAxios } from '../../hooks/useAxios'
 import { AwsomeAPI } from '../../api/EconomiaAwsomeAPI'
@@ -17,6 +17,8 @@ import { useAccountContext } from '@/hooks/useAccountContext'
 export const CreateAccount: React.FC = () => {
 
   const { accounts, setAccounts } = useAccountContext()
+  const navigate = useNavigate()
+
   const { data, loading } = useAxios<Record<string, string>>(AwsomeAPI, 'get', '/available/uniq')
   const currencyList = useMemo( () => Object.entries(data??{}).map( ([key, value]) => ({label: value, value: key}) ), [data] )
 
@@ -32,7 +34,7 @@ export const CreateAccount: React.FC = () => {
                     <Formik<CreateAccountType>
                         initialValues={initialValues}
                         validationSchema={CreateAccountSchema(accounts)}
-                        onSubmit={data => createAccount(data, accounts, setAccounts)}
+                        onSubmit={data => createAccount(data, accounts, setAccounts, navigate)}
                     >
                         <Form className={styles.main__form}>
                             <Input 
@@ -71,7 +73,7 @@ export const CreateAccount: React.FC = () => {
                                 options={currencyList}
                                 placeholder='Selecione a sua moeda principal'
                             />
-                            <Button text='Criar conta' color='green' type='submit' path='/signin'/>
+                            <Button text='Criar conta' color='green' type='submit'/>
                         </Form>
                     </Formik>
                 }
