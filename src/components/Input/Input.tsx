@@ -19,6 +19,7 @@ export const Input: React.FC<Props> = ({name, type, placeholder}) => {
         className={styles.input__area}
         type={type}
         placeholder={placeholder}
+        autoComplete="true"
         {...field}
       />  
       {meta.touched && meta.error? <IoAlertCircleOutline className={styles.input__icon}/>: null}
