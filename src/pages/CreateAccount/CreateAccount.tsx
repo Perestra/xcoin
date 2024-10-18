@@ -71,7 +71,7 @@ export const CreateAccount: React.FC = () => {
                                 options={currencyList}
                                 placeholder='Selecione a sua moeda principal'
                             />
-                            <Button text='Entrar' color='green' type='submit' path=''/>
+                            <Button text='Criar conta' color='green' type='submit' path='/signin'/>
                         </Form>
                     </Formik>
                 }
