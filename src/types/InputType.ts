@@ -1,4 +1,4 @@
-import { SigninType } from '../utils/SigninForm'
+import { SigninType } from "./SignInType";
 
 export type InputType = {
     id: number;
