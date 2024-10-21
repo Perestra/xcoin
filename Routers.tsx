@@ -5,19 +5,23 @@ import { CreateAccount } from './src/pages/CreateAccount/CreateAccount'
 import { Footer } from './src/components/Footer/Footer'
 import { AccountProvider } from '@/contexts/AccountContext'
 import { ForgotPassword } from '@/pages/ForgotPassword/ForgotPassword'
+import { AuthProvider } from '@/contexts/AuthContext'
+import { RequireAuth } from '@/contexts/RequireAuthContext'
 
 export const Routers = () => {
   return (
-    <BrowserRouter>
-      <AccountProvider>
-        <Routes>
-          <Route index element={<Initial />}/>
-          <Route path='signin' element={<SignIn />}/>
-          <Route path='createaccount' element={<CreateAccount />} />
-          <Route path='forgotpassword' element={<ForgotPassword />} />
-        </Routes>  
-      </AccountProvider>
-      <Footer />
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <AccountProvider>
+          <Routes>
+            <Route index element={<Initial />}/>
+            <Route path='signin' element={<SignIn />}/>
+            <Route path='createaccount' element={<CreateAccount />} />
+            <Route path='forgotpassword' element={<ForgotPassword />} />
+          </Routes>  
+          </AccountProvider>
+        <Footer />
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
