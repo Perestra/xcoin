@@ -2,17 +2,20 @@ import styles from './SignIn.module.scss'
 import logo from '../../assets/svg/white_logo.svg'
 
 import { Button } from '../../components/Button/Button'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { Form, Formik } from 'formik'
 import { initialValues, signinSchema } from '../../utils/SigninForm'
 import { Input } from '../../components/Input/Input'
 import { SigninType } from '@/types/SignInType'
 import { useAccountContext } from '@/hooks/useAccountContext'
 import { isValidUser } from '@/accounts/signInUser'
+import { useAuthAccountContext } from '@/hooks/useAuthAccountContext'
 
 export const SignIn: React.FC = () => {
 
   const { accounts } = useAccountContext()
+  const { setAuthAccount } = useAuthAccountContext()
+  const navigate = useNavigate()
 
   return (
     <main className={styles.main}>
@@ -26,7 +29,7 @@ export const SignIn: React.FC = () => {
                 <Formik<SigninType>
                     initialValues={initialValues}
                     validationSchema={signinSchema}
-                    onSubmit={(data, formikHelpers) => isValidUser(data, formikHelpers, accounts)}
+                    onSubmit={(data, formikHelpers) => isValidUser(data, formikHelpers, accounts, setAuthAccount, navigate)}
                 >
                     <Form className={styles.main__form}>
                         <Input 
