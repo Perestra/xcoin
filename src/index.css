@@ -12,6 +12,9 @@
 .hidde {
   display: none;
 }
+.blue {
+  background-color: var(--LightBlue);
+}
 
 :root {
   --White: #F1F1F1;
