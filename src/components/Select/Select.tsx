@@ -27,7 +27,7 @@ export const Select: React.FC<Props> = ({ name, options, placeholder }) => {
             <option 
               key={index} 
               className={styles.select__option} 
-              value={option.value}
+              value={`${option.value} - ${option.label}`}
             >
               {option.value} - {option.label}
             </option>
