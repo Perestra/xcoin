@@ -1,0 +1,43 @@
+.content {
+    width: 100%;
+    height: auto;
+
+    &__main {
+        width: 100%;
+        max-width: 1280px;
+        height: auto;
+        margin: 70px auto auto;
+        padding: 0 10px;
+    }
+
+    &__currency {
+        width: 100%;
+        height: auto;
+    }
+
+    &__select {
+        width: 100%;
+        height: auto;
+        margin: 35px 0 50px;
+    }
+
+    &__form {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        & > span {
+            color: var(--LightGrey);
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        & > button {
+            padding: 10px;
+            border-radius: 50%;
+        }
+    }
+}
