@@ -1,0 +1,28 @@
+.info {
+    width: 100%;
+    height: auto;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    & > h2 {
+        color: var(--DarkGrey);
+        font-size: 1.725rem;
+        font-weight: 600;
+        
+        & > strong {
+            color: var(--Green);
+        }
+    }
+
+    & > h3 {
+        color: var(--DarkGrey);
+        font-size: 1.25rem;
+        font-weight: 600;
+        
+        & > strong {
+            color: var(--Green);
+        }
+    }
+}
