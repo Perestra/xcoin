@@ -34,6 +34,10 @@ npm i axios
 ```js
 npm i uuid
 ```
+- Chart.js
+```js
+npm i chart.js
+```
 
 # RoadMap
 - [X] Desenvolver página inicial
@@ -41,8 +45,8 @@ npm i uuid
     - [X] Realizar validações de formulário utilizando Yup
 - [X] Desenvolver página de criar conta
     - [X] Realizar validações de formulário utilizando Yup
-- [ ] Desenvolver página de esqueci minha senha
-    - [ ] Realizar validações de formulário utilizando Yup
+- [X] Desenvolver página de esqueci minha senha
+    - [X] Realizar validações de formulário utilizando Yup
 - [ ] Desenvolver a página de variações 
     - [ ] Utilizar Chart.js para criação dos gráficos
 - [ ] Desenvolver a página de Conversão
