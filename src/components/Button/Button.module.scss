@@ -2,16 +2,19 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
 
     outline: none;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 
+    padding: 10px 15px;
+
+
     & > span, a {
         color: var(--White);
         font-size: 1rem;
-        padding: 10px 15px;
         font-weight: 500;
     }
 
