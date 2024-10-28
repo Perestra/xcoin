@@ -7,7 +7,7 @@ import { AccountProvider } from '@/contexts/AccountContext'
 import { ForgotPassword } from '@/pages/ForgotPassword/ForgotPassword'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { RequireAuth } from '@/contexts/RequireAuthContext'
-import { Home } from '@/pages/Home/Home'
+import { Variation } from '@/pages/Variation/Variation'
 
 export const Routers = () => {
   return (
@@ -19,7 +19,7 @@ export const Routers = () => {
             <Route path='signin' element={<SignIn />}/>
             <Route path='createaccount' element={<CreateAccount />} />
             <Route path='forgotpassword' element={<ForgotPassword />} />
-            <Route path='home' element={<RequireAuth><Home /></RequireAuth>} />
+            <Route path='variacao' element={<RequireAuth><Variation /></RequireAuth>} />
           </Routes>  
           </AccountProvider>
         <Footer />
