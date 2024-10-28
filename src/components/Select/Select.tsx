@@ -23,7 +23,7 @@ export const Select: React.FC<Props> = ({ name, options, placeholder }) => {
         {...field}
       >
         <option key='placeholder' aria-placeholder={placeholder} value="">{placeholder}</option>
-        { options.map( (option, index) => (
+        { options?.map( (option, index) => (
             <option 
               key={index} 
               className={styles.select__option} 
