@@ -10,7 +10,7 @@ export const UserIntroduction = () => {
   return (
     <div className={styles.info}>
         <h2>Olá, <strong>{authAccount.accounts[0].fullName}!</strong></h2>
-        <h3>Sua moeda principal é <strong>{getCurrencyCode(authAccount.accounts[0].currency)}</strong></h3>  
+        <h3>Sua moeda principal é <strong>{getCurrencyCode(authAccount.accounts[0].currency, 0)}</strong></h3>  
     </div>
   )
 }
