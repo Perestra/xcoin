@@ -1,10 +1,7 @@
-import styles from './Home.module.scss'
+import styles from './Variation.module.scss'
 
 import { Header } from '@/components/Header/Header'
 import { Select } from '@/components/Select/Select'
-import { useAxios } from '@/hooks/useAxios'
-import { AwsomeAPI } from '@/api/EconomiaAwsomeAPI'
-import { useMemo } from 'react'
 import { Form, Formik } from 'formik'
 import { HomeSchema, initialValues } from '@/yupValidations/HomeValidation'
 import { UserIntroduction } from '@/components/UserIntroduction/UserIntroduction'
@@ -12,22 +9,15 @@ import { Button } from '@/components/Button/Button'
 import { LuSearch } from "react-icons/lu";
 import { LineGraph } from '@/components/LineGraph/LineGraph'
 import { lineChartData, lineChartOptions } from '@/utils/LineChart'
-import { useGetAPIData } from '@/hooks/useGetAPIData'
-import { useAuthAccountContext } from '@/hooks/useAuthAccountContext'
 import { getCurrencyCode } from '@/utils/getCurrencyCode'
+import { useState } from 'react'
+import { useCurrencyGraph } from '@/hooks/useCurrencyGraph'
 
-export const Home: React.FC = () => {
+export const Variation: React.FC = () => {
 
-  const { authAccount } = useAuthAccountContext()
-  const { graphCurrency, setGraphCurrency } = useGetAPIData(AwsomeAPI)
+  const [graphCurrency, setGraphCurrency] = useState<string>('USD - Dólar Americano')
+  const { graphData, currencyData, getCurrencyCombination, date, currency } = useCurrencyGraph(graphCurrency)
 
-  const currencyData = useGetAPIData(AwsomeAPI, '/available/uniq')
-  const currencyList = useMemo( () => Object.entries(currencyData.data??{}).map( ([key, value]) => ({label: value, value: key}) ), [currencyData.data] )
-
-  const graphData = useGetAPIData(AwsomeAPI, `daily/${getCurrencyCode(graphCurrency)}-${getCurrencyCode(authAccount.accounts[0].currency)}/15`)
-
-  console.log(graphData.data)
-  
   return (
     <div className={styles.content}>
       <Header 
@@ -42,12 +32,12 @@ export const Home: React.FC = () => {
             <Formik
               initialValues={initialValues}
               validationSchema={HomeSchema}
-              onSubmit={value => setGraphCurrency(getCurrencyCode(value.currency))}
+              onSubmit={value => setGraphCurrency(value.currency)}
             >
               <Form className={styles.content__form}>
                 <Select 
                   name='currency'
-                  options={currencyList}
+                  options={getCurrencyCombination.filter((option): option is { label: string; value: string } => option !== undefined)}
                   placeholder='Selecione uma moeda'
                 /> 
                 <Button 
@@ -59,7 +49,7 @@ export const Home: React.FC = () => {
             </Formik>
           </div>}
         </section>
-        <LineGraph title='Variação - Dólar Americano' options={lineChartOptions} data={lineChartData} />
+        { !graphData.loading && <LineGraph title={`Variação - ${getCurrencyCode(graphCurrency, 1)}`} options={lineChartOptions} data={lineChartData(date, currency)} />}
       </main>
     </div>
   )
