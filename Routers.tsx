@@ -8,6 +8,7 @@ import { ForgotPassword } from '@/pages/ForgotPassword/ForgotPassword'
 import { AuthProvider } from '@/contexts/AuthContext'
 import { RequireAuth } from '@/contexts/RequireAuthContext'
 import { Variation } from '@/pages/Variation/Variation'
+import { Exchange } from '@/pages/Exchange/Exchange'
 
 export const Routers = () => {
   return (
@@ -20,6 +21,7 @@ export const Routers = () => {
             <Route path='createaccount' element={<CreateAccount />} />
             <Route path='forgotpassword' element={<ForgotPassword />} />
             <Route path='variacao' element={<RequireAuth><Variation /></RequireAuth>} />
+            <Route path='conversao' element={<RequireAuth><Exchange /></RequireAuth>} />
           </Routes>  
           </AccountProvider>
         <Footer />
