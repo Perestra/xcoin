@@ -18,6 +18,7 @@ export const LineGraph: React.FC<Props> = ({ title, options, data }) => {
         <FavButton />
       </div>
       <Line options={options} data={data} className={style.section__line} />
+      <span>** A variação é em relação a sua moeda principal</span>
     </section>
   )
 }
