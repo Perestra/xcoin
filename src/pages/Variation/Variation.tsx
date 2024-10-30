@@ -3,7 +3,7 @@ import styles from './Variation.module.scss'
 import { Header } from '@/components/Header/Header'
 import { Select } from '@/components/Select/Select'
 import { Form, Formik } from 'formik'
-import { HomeSchema, initialValues } from '@/yupValidations/HomeValidation'
+import { HomeSchema, initialValues } from '@/yupValidations/VariationValidation'
 import { UserIntroduction } from '@/components/UserIntroduction/UserIntroduction'
 import { Button } from '@/components/Button/Button'
 import { LuSearch } from "react-icons/lu";
@@ -11,19 +11,21 @@ import { LineGraph } from '@/components/LineGraph/LineGraph'
 import { lineChartData, lineChartOptions } from '@/utils/LineChart'
 import { getCurrencyCode } from '@/utils/getCurrencyCode'
 import { useState } from 'react'
-import { useCurrencyGraph } from '@/hooks/useCurrencyGraph'
+import { useCurrencyList } from '@/hooks/useCurrencyList'
+import { useDailyCurrency } from '@/hooks/useDailyCurrency'
 
 export const Variation: React.FC = () => {
 
   const [graphCurrency, setGraphCurrency] = useState<string>('USD - Dólar Americano')
-  const { graphData, currencyData, getCurrencyCombination, date, currency } = useCurrencyGraph(graphCurrency)
+  const { dailyData, date, currency, } = useDailyCurrency(graphCurrency)
+  const { currencyData, getCurrencyCombination } = useCurrencyList()
 
   return (
     <div className={styles.content}>
       <Header 
         classLogin='hidde' 
         bgColor='blue'
-        to='/home'
+        to='/variacao'
       />
       <main className={styles.content__main}>
         <section className={styles.content__currency}>
@@ -49,7 +51,7 @@ export const Variation: React.FC = () => {
             </Formik>
           </div>}
         </section>
-        { !graphData.loading && <LineGraph title={`Variação - ${getCurrencyCode(graphCurrency, 1)}`} options={lineChartOptions} data={lineChartData(date, currency)} />}
+        { !dailyData.loading && <LineGraph title={`Variação - ${getCurrencyCode(graphCurrency, 1)}`} options={lineChartOptions} data={lineChartData(date, currency)} />}
       </main>
     </div>
   )

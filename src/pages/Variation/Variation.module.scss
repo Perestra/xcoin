@@ -6,13 +6,14 @@
         width: 100%;
         max-width: 1280px;
         height: auto;
-        margin: 70px auto auto;
+        margin: auto;
         padding: 0 10px;
     }
 
     &__currency {
         width: 100%;
         height: auto;
+        margin-top: 70px;
     }
 
     &__select {
