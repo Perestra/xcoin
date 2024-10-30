@@ -4,7 +4,7 @@ const initialValues = {
     currency: 'USD - Dólar Americano'
 }
 
-const HomeSchema = () => 
+const HomeSchema = 
 object({
     currency: 
         string()
