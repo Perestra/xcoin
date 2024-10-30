@@ -44,7 +44,7 @@ export const SignIn: React.FC = () => {
                             type='password'
                             placeholder='Digite sua senha'
                         />
-                        <Button text='Entrar' color='green' type='submit' path=''/>
+                        <Button text='Entrar' color='green' type='submit' path='/variacao'/>
                     </Form>
                 </Formik>
                 <div className={styles.main__extras}>
