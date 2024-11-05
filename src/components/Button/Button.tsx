@@ -8,11 +8,13 @@ type Props = {
     path?: string;
     color: string;
     type: "button" | "submit";
+    title?: string;
+    onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
-export const Button: React.FC<Props> = ({ icon: Icon, text, path, color, type }) => {
+export const Button: React.FC<Props> = ({ icon: Icon, text, path, color, type, title, onClick }) => {
   return (
-    <button className={`${styles.button} ${styles[color]}`} type={type}>
+    <button className={`${styles.button} ${styles[color]}`} type={type} title={title} onClick={onClick}>
       {Icon && <Icon className={styles.button__icon} />}
       {!path && text && <span>{text}</span>}
       {path && text && <Link to={path}>{text}</Link>}
