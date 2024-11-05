@@ -4,7 +4,7 @@ import { isValidInputData } from "./formValidation";
 import { v4 as uuid } from 'uuid';
 import { NavigateFunction } from "react-router-dom";
   
-const createAccount = (data: CreateAccountType, accounts: AccountsType[], setAccounts: React.Dispatch<React.SetStateAction<AccountsType[]>>, navigate: NavigateFunction) => {
+const createAccount = (data: CreateAccountType, accounts: AccountsType[], setAccounts: React.Dispatch<React.SetStateAction<AccountsType[] | undefined>>, navigate: NavigateFunction) => {
 
     let account: AccountsType = {
         id: uuid(),
@@ -12,7 +12,8 @@ const createAccount = (data: CreateAccountType, accounts: AccountsType[], setAcc
         username: data.username.trim(),
         email: data.email.toLowerCase(),
         password: data.password,
-        currency: data.currency
+        currency: data.currency,
+        favorites:[]
     }
 
     if (!isValidInputData(data.email, 'email', accounts) && !isValidInputData(data.username, 'username', accounts)) {
