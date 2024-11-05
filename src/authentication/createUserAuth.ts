@@ -10,7 +10,8 @@ const createUserAuth = (account: AccountsType, setAuthAccount: React.Dispatch<Re
             username: account.username,
             email: account.email,
             password: account.password,
-            currency: account.currency
+            currency: account.currency,
+            favorites: account.favorites
         }],
         token: uuid()
     }
