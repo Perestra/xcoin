@@ -6,4 +6,5 @@ export type AccountsType = {
     email: string;
     password: string;
     currency: string;
+    favorites: {code: string}[];
 }
