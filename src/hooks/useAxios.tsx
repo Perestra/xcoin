@@ -10,29 +10,32 @@ type UseAxiosResult<T> = {
 export const useAxios = <T,>(axiosInstance: AxiosInstance, method: 'get' | 'post' | 'put' | 'delete', url: string): UseAxiosResult<T> => {
   
     const [data, setData] = useState<T | null>(null);
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
     useEffect( () => {
+        setLoading(true)
+        setError(null)
+
         const controller = new AbortController()
 
         const fetchData = async () => {
+            
             try {
                 const res: AxiosResponse<T> = await axiosInstance[method](url, {
                         signal: controller.signal
                     });
                     setData(res.data)
             } catch (err) {
-                axios.isAxiosError(err)? setError(err.message): setError("An unexpected error occurred")
+                if(axios.isAxiosError(err)) err.code === 'ERR_BAD_REQUEST'? setError('Não é possível realizar essa conversão'): null
+                if(axios.isAxiosError(err)) err.code === 'ECONNABORTED'? setError('Aguarde um momento para realizar uma nova conversão'): null
             } finally {
                 setLoading(false)
             }
         }
         fetchData()
 
-        return () => {
-            controller.abort()
-        }
+        return () => controller.abort()
     }, [axiosInstance, method, url] )
 
     return {data, loading, error}
