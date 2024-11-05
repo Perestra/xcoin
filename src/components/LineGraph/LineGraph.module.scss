@@ -25,6 +25,11 @@
             font-size: 1.625rem;
             font-weight: 700;
         }
+
+        & > button {
+            padding: 10px;
+            border-radius: 50%;
+        }
     }
 
     &__line {
