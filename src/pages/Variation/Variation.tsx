@@ -51,7 +51,14 @@ export const Variation: React.FC = () => {
             </Formik>
           </div>}
         </section>
-        { !dailyData.loading && <LineGraph title={`Variação - ${getCurrencyCode(graphCurrency, 1)}`} options={lineChartOptions} data={lineChartData(date, currency)} />}
+        { !dailyData.loading && 
+          <LineGraph 
+            title={`Variação - ${getCurrencyCode(graphCurrency, 1)}`} 
+            options={lineChartOptions} 
+            data={lineChartData(date, currency)} 
+            code={getCurrencyCode(graphCurrency, 0)}
+          />
+        }
       </main>
     </div>
   )
