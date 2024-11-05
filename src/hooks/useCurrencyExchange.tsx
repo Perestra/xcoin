@@ -16,14 +16,14 @@ export const useCurrencyExchange = () => {
 
     const [exchangeValues, setExchangeValues] = useState<ExchangeCurrency>({
         from: 'USD',
-        to: authAccount.accounts[0].currency,
+        to: getCurrencyCode(authAccount.accounts[0].currency, 0),
         amount: '1',
     });
-
+    
     const exchangeData = useGetAPIData(AwsomeAPI, `/${getCurrencyCode(exchangeValues.from, 0)}-${getCurrencyCode(exchangeValues.to, 0)}`)
 
     const exchangeCalc = (amount: string) => {
-        return exchangeData.data? (exchangeData.data[0].bid * parseFloat(amount.trim())).toFixed(2): 'Não foi possível realizar a conversão'
+        if (exchangeData.data) return (exchangeData.data[0].bid * parseFloat(amount.trim())).toFixed(2)
     }
 
     return { exchangeValues, setExchangeValues, exchangeData, exchangeCalc }
