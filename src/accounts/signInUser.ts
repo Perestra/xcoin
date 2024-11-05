@@ -14,7 +14,7 @@ const isValidUser = (data: SigninType, { setErrors }: any, accounts: AccountsTyp
         }) 
     } else {
         createUserAuth(isAccountValid, setAuthAccount)
-        navigate("/home")
+        navigate("/variacao")
     }
 }
 
