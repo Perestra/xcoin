@@ -4,11 +4,12 @@ import { useFavoriteCurrency } from '@/hooks/useFavoriteCurrency'
 import { FavButton } from '../FavButton/FavButton'
 
 type Props = {
+    coin: string;
     code: string;
     exchange: string;
 }
 
-export const FavCard: React.FC<Props> = ({ code, exchange }) => {
+export const FavCard: React.FC<Props> = ({ coin, code, exchange }) => {
 
   const { isCodeInList, addFavoriteCurrency, remFavoriteCurrency } = useFavoriteCurrency(code)
 
@@ -16,7 +17,7 @@ export const FavCard: React.FC<Props> = ({ code, exchange }) => {
     <div className={style.card}>
         <div className={style.card__currency}>
             <div className={style.card__data}>
-                <h3>{code}</h3>
+                <h3>{coin}</h3>
                 <span>1.00 {code}</span>
             </div>
             <FavButton 
