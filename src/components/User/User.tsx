@@ -13,9 +13,9 @@ export const User: React.FC<Props> = ({className}) => {
   
   return (
     <div className={`${styles.user} ${className}`}>
-      <div className={styles.user__logo}><span>{authAccount?.accounts[0].fullName.charAt(0)}</span></div>
-      <span className={styles.user__name}>{authAccount?.accounts[0].username}</span>
-      <IoIosArrowDown className={styles.user__icon}/>
+      { authAccount.token && <div className={styles.user__logo}><span>{authAccount.accounts[0].fullName.charAt(0)}</span></div>}
+      { authAccount.token && <span className={styles.user__name}>{authAccount.accounts[0].username}</span>}
+      { authAccount.token && <IoIosArrowDown className={styles.user__icon}/>}
     </div>
   )
 }
