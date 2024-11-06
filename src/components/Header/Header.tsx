@@ -15,6 +15,7 @@ type Props = {
 }
 
 export const Header: React.FC<Props> = ({bgColor, classNav, classUser, classLogin, to }) => {
+
   return (
     <header className={`${styles.header} ${bgColor}`}>
       <div className={styles.header__container}>
