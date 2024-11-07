@@ -1,7 +1,7 @@
 import styles from './NavLink.module.scss'
-import links from '../../json/Pages.json'
+import links from '@/json/Pages.json'
 
-import { LinkPage } from '../LinkPage/LinkPage'
+import { LinkPage } from '../LinkPage/LinkPage';
 
 type Link = {
     id: number;

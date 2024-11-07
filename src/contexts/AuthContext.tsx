@@ -4,7 +4,7 @@ import { AuthAccountType } from "@/types/AuthAccountType";
 import { AuthContextType } from "@/types/AuthContextType";
 import { createContext } from "react";
 
-export const AuthContext = createContext<AuthContextType | undefined>(undefined)
+export const AuthContext = createContext<AuthContextType | any>(undefined)
 
 type Props = {
     children: React.ReactNode

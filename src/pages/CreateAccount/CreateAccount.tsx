@@ -1,5 +1,4 @@
 import styles from './CreateAccount.module.scss'
-import logo from '../../assets/svg/white_logo.svg'
 
 import { Form, Formik } from 'formik'
 import { Input } from '../../components/Input/Input'
@@ -82,7 +81,6 @@ export const CreateAccount: React.FC = () => {
                 </div>
             </aside>
         </section>
-        {/* <img className={styles.main__logo} src={logo} alt="Logo da XCoin branca com o X e o C maiúsculo." /> */}
     </main>
   )
 }

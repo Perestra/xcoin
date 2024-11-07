@@ -1,5 +1,4 @@
 import styles from './ForgotPassword.module.scss'
-import logo from '../../assets/svg/white_logo.svg'
 
 import { Button } from '../../components/Button/Button'
 import { Form, Formik } from 'formik'
@@ -18,7 +17,6 @@ export const ForgotPassword: React.FC = () => {
 
   return (
     <main className={styles.main}>
-        {/* <img className={styles.main__logo} src={logo} alt="Logo da XCoin branca com o X e o C maiúsculo." /> */}
         <section className={styles.main__section}>
             <aside className={styles.main__aside}>
                 <div className={styles.main__title}>
