@@ -1,5 +1,5 @@
 import styles from './NavLink.module.scss'
-import links from '@/json/Pages.json'
+import linksData from '../../json/Pages.json'
 
 import { LinkPage } from '../LinkPage/LinkPage';
 
@@ -9,9 +9,15 @@ type Link = {
   url: string;
 }
 
+type PagesJson = {
+  Header: Link[];
+};
+
 type Props = {
     className?: string;
 }
+
+const links = linksData as PagesJson; 
 
 export const NavLink: React.FC<Props> = ({className}) => {
   return (
