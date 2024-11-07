@@ -11,8 +11,10 @@
         "./src/*"
       ]
     },
-    "moduleResolution": "bundler",
+    "moduleResolution": "Node",
+     "resolveJsonModule": true,
     "allowImportingTsExtensions": true,
+    "allowSyntheticDefaultImports": true,
     "isolatedModules": true,
     "moduleDetection": "force",
     "noEmit": true,

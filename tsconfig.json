@@ -15,6 +15,7 @@
     },
     "moduleResolution": "Node",
     "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
   },
   "files": [],
   "references": [
