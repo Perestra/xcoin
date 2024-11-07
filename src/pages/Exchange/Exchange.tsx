@@ -48,23 +48,25 @@ export const Exchange: React.FC = () => {
                 <Form className={styles.content__form}>
                   <div className={styles.content__inputs}>
                     <Input key={1} type='text' placeholder='Quantia' name='amount' />
-                    <Select key={2} 
-                      options={currencyList} 
-                      placeholder='De' 
-                      name='from' 
-                    />
-                    <Button 
-                      color='green' 
-                      type='button' 
-                      icon={TbArrowsExchange} 
-                      title='Inverter' 
-                      onClick={ () => invertCurrency(values.from, values.to, setFieldValue)}
-                    />
-                    <Select key={3} 
-                      options={currencyList} 
-                      placeholder='Para' 
-                      name='to' 
-                    />
+                    <div className={styles.content__coins}>
+                      <Select key={2} 
+                        options={currencyList} 
+                        placeholder='De' 
+                        name='from' 
+                      />
+                      <Button 
+                        color='green' 
+                        type='button' 
+                        icon={TbArrowsExchange} 
+                        title='Inverter' 
+                        onClick={ () => invertCurrency(values.from, values.to, setFieldValue)}
+                      />
+                      <Select key={3} 
+                        options={currencyList} 
+                        placeholder='Para' 
+                        name='to' 
+                      />
+                    </div>
                   </div>
                   <Button
                     color='green' 

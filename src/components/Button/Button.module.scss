@@ -37,3 +37,15 @@
 .blue {
     background-color: var(--LightBlue);
 }
+
+@media screen and (max-width: 620px) {
+    .button {
+        & > span, a {
+            font-size: 0.875rem;
+        }
+        &__icon {
+            width: 16px;
+            height: 16px;
+        }
+    }
+}

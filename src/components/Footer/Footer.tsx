@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <Logo src={whiteLogo} />
+      <Logo src={whiteLogo} to='' />
       <div className={styles.footer__media}>
         {social.Media.map( link => (
           <Link key={link.id} to={link.url} target='_blank'>{link.name}</Link>

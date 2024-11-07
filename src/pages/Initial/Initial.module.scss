@@ -21,6 +21,8 @@
         align-items: center;
         justify-content: center;
         gap: 15px;
+
+        padding: 0 10px;
        
         & > h1 {
             font-size: 2.25rem;
@@ -34,15 +36,13 @@
         height: auto;
         background-color: var(--White);
     }
-
+    
     &__section {
         width: 100%;
         max-width: 1280px;
         height: auto;
-        margin: 70px auto auto;
-
-        
-        padding: 0px 10px;
+        margin: auto;
+        padding: 70px 10px 0;
 
         & > h1 {
             font-size: 2rem;
@@ -86,6 +86,8 @@
         align-items: center;
         justify-content: space-evenly;
 
+        padding: 0 10px;
+
 
         & > h1 {
             font-size: 2.25rem;
@@ -100,11 +102,9 @@
         height: auto;
         margin: auto;
 
-        margin: 70px auto;
-        padding: 0px 10px;
+        padding: 70px 10px;
 
         display: flex;
-        flex-wrap: wrap;
         justify-content: center;
         gap: 50px;
     }
@@ -142,6 +142,141 @@
             font-size: 1.125rem;
             font-weight: 500;
             color: var(--LightGrey);
+        }
+    }
+}
+@media screen and (max-width: 1000px) {
+    .initial {
+        &__line {
+            flex-direction: column;
+            justify-content: center;
+            gap: 15px;
+
+            & > h1 {
+                font-size: 1.625rem;
+            }
+        }
+    }
+}
+@media screen and (max-width: 960px) {
+    .initial {
+        &__content {
+            & > h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        &__section {
+            padding: 40px 10px 0;
+            & > h1 {
+                font-size: 1.5rem;
+            }
+        }
+
+        &__line {
+            margin-top: 40px;
+        }
+
+        &__app {
+            width: 100%;
+
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 40px;
+            padding: 40px 10px;
+        }
+    
+        &__imgApp {
+            max-width: 100%;
+        }
+
+        &__appDescription {
+            width: 100%;
+    
+            & > h1 {
+                font-size: 1.5rem;
+            }
+
+            & > p {
+                font-size: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .initial {
+        &__content {
+            & > h1 {
+                font-size: 1.25rem;
+            }
+        }
+
+        &__section {
+            padding: 40px 10px 0;
+            & > h1 {
+                font-size: 1.25rem;
+            }
+        }
+
+        &__cards {
+            justify-items: center;
+        }
+
+        &__line {
+            & > h1 {
+                font-size: 1.25rem;
+            }
+        }
+        
+        &__appDescription {
+            & > h1 {
+                font-size: 1.25rem;
+            }
+        }
+
+        &__imgApp {
+            height: 170px;
+            & > img {
+                height: 170px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .initial {
+        &__content {
+            & > h1 {
+                font-size: 1.125rem;
+            }
+        }
+
+        &__section {
+            padding: 30px 10px 0;
+            & > h1 {
+                font-size: 1.125rem;
+            }
+        }
+
+        &__line {
+            margin-top: 30px;
+            & > h1 {
+                font-size: 1.125rem;
+            }
+        }
+
+        &__app {
+            padding: 30px 10px;
+        }
+        
+        &__appDescription {
+            & > h1 {
+                font-size: 1.125rem;
+            }
+            & > p {
+                font-size: 0.875rem;
+            }
         }
     }
 }

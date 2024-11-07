@@ -12,6 +12,7 @@
     &__type {
         background-color: var(--LightGreen);
         border-radius: 5px;
+        display: flex;
     }
 
     &__icon {
@@ -42,6 +43,26 @@
             font-size: 1rem;
             font-weight: 500;
             color: var(--LightGrey);
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .currency {
+        &__icon {
+            width: 22px;
+            height: 22px;
+            margin: 7px;
+        }
+    
+        &__content {
+            & > h1 {
+                font-size: 1rem;
+            }
+        
+            & > p {
+                font-size: 0.875rem;
+            }
         }
     }
 }

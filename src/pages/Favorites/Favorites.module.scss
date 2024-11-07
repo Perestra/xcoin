@@ -40,3 +40,16 @@
         gap: 30px;
     }
 }
+
+@media screen and (max-width: 520px) {
+    .content {
+
+        &__section {
+            margin-top: 40px;
+        }
+
+        &__cards {
+            margin: 25px 0 40px;
+        }
+    }
+}

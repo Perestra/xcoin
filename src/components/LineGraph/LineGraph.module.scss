@@ -39,3 +39,15 @@
         margin: 20px 0;
     }
 }
+
+
+@media screen and (max-width: 620px) {
+    .section {
+        margin-bottom: 60px;
+        &__header {
+            & > h1 {
+                font-size: 1rem;
+            }
+        }
+    }
+}

@@ -39,3 +39,18 @@
         }
     }
 }
+
+
+@media screen and (max-width: 450px) {
+    .footer {
+        & > span {
+            font-size: 0.875rem;
+        }
+    
+        &__media {
+            & > a {
+                font-size: 0.875rem;
+            }
+        }
+    }
+}

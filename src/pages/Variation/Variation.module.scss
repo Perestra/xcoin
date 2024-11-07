@@ -50,3 +50,21 @@
         }
     }
 }
+
+@media screen and (max-width: 960px) {
+    .content {
+        &__currency {
+            margin-top: 40px;
+        }
+
+        &__select {
+            margin: 25px 0 40px;
+        }
+    }
+}
+
+@media screen and (max-width: 520px) {
+    .content {
+        min-height: auto;
+    }
+}
