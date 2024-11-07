@@ -21,9 +21,9 @@ export const useDailyCurrency = (graphCurrency: string) => {
     const labels = new Set<DateCurrency['label']>()
     const newDateCurrency: DateCurrency[] = []
 
-    Object.entries(dailyData.data ?? {}).forEach(([key, item]) => {
-      const label = timestampConversor(item.timestamp)
-      const value = item.bid
+    Object.entries(dailyData.data ?? {}).forEach(([, currency]) => {
+      const label = timestampConversor(currency.timestamp)
+      const value = currency.bid
 
       if (!labels.has(label)) {
         labels.add(label)
