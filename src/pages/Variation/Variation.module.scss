@@ -10,9 +10,9 @@
         width: 100%;
         max-width: 1280px;
         height: auto;
-        margin: auto;
+        margin: auto auto 100px;
         padding: 0 10px;
-        
+
         display: flex;
         flex-direction: column;
         flex-grow: 1;
@@ -21,13 +21,13 @@
     &__currency {
         width: 100%;
         height: auto;
-        margin-top: 70px;
+        margin: 70px 0;
     }
 
     &__select {
         width: 100%;
         height: auto;
-        margin: 35px 0 50px;
+        margin: 35px 0 0;
     }
 
     &__form {
@@ -51,20 +51,14 @@
     }
 }
 
-@media screen and (max-width: 960px) {
+@media screen and (max-width: 520px) {
     .content {
         &__currency {
-            margin-top: 40px;
+            margin: 40px 0;
         }
 
         &__select {
-            margin: 25px 0 40px;
+            margin: 25px 0 0;
         }
-    }
-}
-
-@media screen and (max-width: 520px) {
-    .content {
-        min-height: auto;
     }
 }

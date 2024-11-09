@@ -14,19 +14,20 @@
         padding: 0 10px;
 
         display: flex;
+        flex-direction: column;
         flex-grow: 1;
     }
 
     &__section {
         width: 100%;
         height: auto;
-        margin-top: 70px;
+        margin: 70px 0;
     }
 
     &__conversor {
         width: 100%;
         height: auto;
-        margin: 35px 0 70px;
+        margin: 35px 0 0;
         padding: 20px 30px;
 
         border-radius: 10px;
@@ -116,7 +117,7 @@
         }
 
         &__conversor {
-            margin: 25px 0 40px;
+            margin: 25px 0 0;
             padding: 20px 30px;
         }
     }
@@ -125,16 +126,12 @@
 @media screen and (max-width: 960px) {
     .content {
         &__conversor {
-            margin: 25px 0 60px;
+            margin: 25px 0 0;
             padding: 10px 20px;
 
             & > h1 {
                 font-size: 1.5rem;
             }
-        }
-
-        &__section {
-            margin-top: 40px;
         }
     }
 }
@@ -163,6 +160,8 @@
 
 @media screen and (max-width: 520px) {
     .content {
-        min-height: auto;
+        &__section {
+            margin: 40px 0;
+        }
     }
 }

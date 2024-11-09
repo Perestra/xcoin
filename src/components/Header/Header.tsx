@@ -26,11 +26,11 @@ export const Header: React.FC<Props> = ({bgColor, classNav, classUser, classLogi
     <header className={`${styles.header} ${bgColor}`}>
       <div className={styles.header__container}>
         <Logo src={LogoColored} to={to}/>
-        <Button icon={HiOutlineMenuAlt3} color='blue' type='button' onClick={() => setMenuActive(!menuActive)} />
-        <div className={`${styles.header__nav} ${menuActive? styles.active: ''}`}>
-          <NavLink className={classNav}/>
-          <User className={classUser}/>  
-        </div>
+        { to !== '/' && <Button icon={HiOutlineMenuAlt3} color='blue' type='button' onClick={() => setMenuActive(!menuActive)} /> }
+          <div className={`${styles.header__nav} ${classNav} ${menuActive? styles.active: ''}`}>
+            <NavLink className={classNav}/>
+            <User className={classUser}/>  
+          </div>
         <span className={`${styles.header__login} ${classLogin}`}><Link to="/signin" role='link' aria-label='Entre ou cadastre-se' >Entre ou cadastre-se</Link></span>  
       </div>
     </header>
