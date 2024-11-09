@@ -4,7 +4,8 @@ import {
     LinearScale, 
     PointElement, 
     LineElement,
-    Legend 
+    Legend, 
+    scales
 } from 'chart.js'
 
 ChartJS.register(
@@ -29,7 +30,20 @@ const lineChartData = (dates: string[], currencys: number[]) => ({
 const lineChartOptions = {
     type: "Line",
     data: lineChartData,
-    responsive: true
+    responsive: true,
+    maintainAspectRatio: false,
+    aspectRatio: window.innerWidth < 520 ? 1 : 2,
+    scales: {
+        x: {
+            ticks: {
+                maxRotation: 0,
+                minRotation: 45,
+                font: {
+                    size: window.innerWidth < 920? 10: 14,
+                },
+            },
+        },
+    },
 } 
 
 export { lineChartData, lineChartOptions }

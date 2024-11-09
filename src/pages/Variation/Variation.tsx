@@ -55,7 +55,7 @@ export const Variation: React.FC = () => {
           <LineGraph 
             title={`Variação - ${getCurrencyCode(graphCurrency, 1)}`} 
             options={lineChartOptions} 
-            data={lineChartData(date, currency)} 
+            data={lineChartData(date, currency)}
             code={getCurrencyCode(graphCurrency, 0)}
           />
         }
