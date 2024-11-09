@@ -31,15 +31,14 @@ const lineChartOptions = {
     type: "Line",
     data: lineChartData,
     responsive: true,
-    maintainAspectRatio: false,
-    aspectRatio: window.innerWidth < 520 ? 1 : 2,
+    aspectRatio: window.innerWidth < 520? 1.2: 2,
     scales: {
         x: {
             ticks: {
-                maxRotation: 0,
+                maxRotation: 45,
                 minRotation: 45,
                 font: {
-                    size: window.innerWidth < 920? 10: 14,
+                    size: window.innerWidth < 920? 10: 12,
                 },
             },
         },
