@@ -8,6 +8,7 @@ import { ForgotPasswordSchema, initialValues } from '@/yupValidations/ForgotPass
 import { ForgotPasswordType } from '@/types/ForgotPasswordType'
 import { accountPassword } from '@/accounts/accountPassword'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 export const ForgotPassword: React.FC = () => {
 
@@ -36,6 +37,9 @@ export const ForgotPassword: React.FC = () => {
                             placeholder='Digite sua conta de e-mail'
                         />    
                         <Button text='Continuar' color='green' type='submit'/>
+                        <div className={styles.main__remember}>
+                            <span>Lembrou sua senha? <Link to="/signin">Clique aqui!</Link></span>
+                        </div>
                     </Form>
                 </Formik>
                 {password && <div className={styles.main__password}>
@@ -43,7 +47,6 @@ export const ForgotPassword: React.FC = () => {
                     <div className={styles.main__span}>
                         <span>{password}</span>
                     </div>
-                    <Button text='Ira para o Login' color='blue' type='submit' path='/signin'/>
                 </div>}
             </aside>
         </section>

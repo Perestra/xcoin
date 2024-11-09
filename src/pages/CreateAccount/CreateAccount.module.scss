@@ -15,8 +15,6 @@
         max-width: 550px;
 
         display: flex;
-        align-items: center;
-        flex-grow: 1;
 
         background-color: var(--White);
         padding: 0 10px;
@@ -77,6 +75,41 @@
                     text-decoration: underline;
                 }
             }
+        }
+    }
+}
+
+
+@media screen and (max-width: 1060px) {
+    .main {
+        &__section { 
+            max-width: 450px;
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .main {
+        &__section { 
+            max-width: 400px;
+        }
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .main {
+        &__section { 
+            max-width: 100%;
+            display: block;
+            padding-top: 50px;
+        }
+    }
+}
+
+@media screen and (max-width: 920px) {
+    .main {
+        &__aside {
+            width: 320px;
         }
     }
 }
