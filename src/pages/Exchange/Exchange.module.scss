@@ -165,3 +165,23 @@
         }
     }
 }
+
+@media screen and (max-width: 475px) {
+    .content {
+        &__coins {
+            & > div:first-child > select ~ span {
+                bottom: -35px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 455px) {
+    .content {
+        &__coins {
+            & > div:last-child > select ~ span {
+                bottom: -35px;
+            }
+        }
+    }
+}
