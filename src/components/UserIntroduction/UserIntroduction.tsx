@@ -9,7 +9,10 @@ export const UserIntroduction = () => {
     
     const getName = (name: string) => {
       const nameSplited = name.split(' ')
-      return `${nameSplited[0]} ${nameSplited[1]}`
+      if(nameSplited[1]){
+        return `${nameSplited[0]} ${nameSplited[1]}`
+      }
+      return `${nameSplited[0]}`
     }
 
   return (
