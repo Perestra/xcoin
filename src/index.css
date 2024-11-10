@@ -12,6 +12,7 @@
 .hidde {
   display: none;
 }
+
 .blue {
   background-color: var(--LightBlue);
 }
@@ -22,6 +23,7 @@
   --LightGreen: #8CC7AB;
   --Green: #44A06F;
   --LightBlue: #3D4750;
+  --DarkBlue: #171A1F;
   --LightGrey: #898989;
   --DarkGrey: #323232;
 }

@@ -32,7 +32,6 @@ export const Favorites: React.FC = () => {
         }
     }
 
-
   return (
     <div className={style.content}>
         <Header 

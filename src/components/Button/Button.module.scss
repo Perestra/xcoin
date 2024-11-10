@@ -28,6 +28,7 @@
         width: 22px;
         height: 22px;
         color: var(--White);
+        transition: all ease-in-out 0.1s;
     }
 }
 
@@ -37,6 +38,10 @@
 .blue {
     background-color: var(--LightBlue);
 }
+.rotate {
+    transform: rotate(180deg);
+}
+
 
 @media screen and (max-width: 620px) {
     .button {

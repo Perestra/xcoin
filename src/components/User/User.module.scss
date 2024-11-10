@@ -1,9 +1,20 @@
 .user {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative;
 
-    gap: 10px;
+    &__credential {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+
+        & > button {
+            background-color: transparent;
+            padding: 0;
+        }
+    }
 
     &__logo {
         width: 40px;
@@ -29,10 +40,99 @@
         font-weight: 500;
     }
 
-    &__icon {
-        width: 20px;
-        height: 20px;
+    &__dropbox {
+        position: absolute;
+        top: 140%;
+        right: 0;
+
+        width: 250px;
+        max-height: 0px;
+        overflow: hidden;
+  
+        background-color: var(--DarkBlue);
+
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+
+        transition: all ease-in-out 0.2s;
+    }
+
+    &__dropboxUser {
+        width: 100%;
+        height: auto;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 15px 10px;
+
+        background-color: var(--DarkBlue);
+        border-bottom: 1px solid var(--White);
+    }
+
+    &__dropboxUsername {
         color: var(--White);
-        cursor: pointer;
+        font-size: 0.875rem;
+        font-weight: 500;
+        margin-top: 5px;
+    }
+
+    &__dropboxEmail {
+        color: var(--White);
+        font-size: 0.75rem;
+        font-weight: 500;
+    }
+
+    &__dropboxContent {
+        width: 100%;
+        height: auto;
+
+        margin-bottom: 7px;
+
+        & > button {
+            width: 100%;
+            text-align: start;
+            border-radius: 0;
+            background-color: var(--DarkBlue);
+
+            & > svg {
+                width: 26px;
+                height: 26px;
+            }
+
+            & > a {
+                font-size: 0.875rem;
+                margin-left: 5px;
+            }
+
+            &:hover {
+                background-color: var(--Green);
+            }
+        }
+
+        & > button:first-child > svg {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+.opened {
+    max-height: 215px;
+}
+
+@media screen and (max-width: 960px) {
+    .user {
+        &__credential {
+            
+        }
+        &__dropbox {
+            position: inherit;
+            top: 10px;
+
+            width: 250px;
+            height: auto;
+        }
     }
 }
