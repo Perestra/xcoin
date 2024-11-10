@@ -13,21 +13,21 @@ import { Favorites } from '@/pages/Favorites/Favorites'
 
 export const Routers = () => {
   return (
-    <AuthProvider>
-      <BrowserRouter>
+    <BrowserRouter>
+      <AuthProvider>
         <AccountProvider>
           <Routes>
-            <Route index element={<Initial />}/>
-            <Route path='signin' element={<SignIn />}/>
-            <Route path='createaccount' element={<CreateAccount />} />
-            <Route path='forgotpassword' element={<ForgotPassword />} />
-            <Route path='variacao' element={<RequireAuth><Variation /></RequireAuth>} />
-            <Route path='conversao' element={<RequireAuth><Exchange /></RequireAuth>} />
-            <Route path='favoritos' element={<RequireAuth><Favorites /></RequireAuth>} />
+              <Route index element={<Initial />}/>
+              <Route path='signin' element={<SignIn />}/>
+              <Route path='createaccount' element={<CreateAccount />} />
+              <Route path='forgotpassword' element={<ForgotPassword />} />
+              <Route path='variacao' element={<RequireAuth><Variation /></RequireAuth>} />
+              <Route path='conversao' element={<RequireAuth><Exchange /></RequireAuth>} />
+              <Route path='favoritos' element={<RequireAuth><Favorites /></RequireAuth>} />
           </Routes>  
           </AccountProvider>
         <Footer />
-      </BrowserRouter>
-    </AuthProvider>
+      </AuthProvider>
+    </BrowserRouter>
   )
 }
