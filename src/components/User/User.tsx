@@ -13,7 +13,7 @@ type Props = {
 
 export const User: React.FC<Props> = ({className}) => {
 
-  const { authAccount, setAuthAccount } = useAuthAccountContext()
+  const { authAccount, setAuthAccount, userLogged } = useAuthAccountContext()
   const [openDropbox, setOpenDropbox] = useState<boolean>(false)
   
   return (
@@ -21,8 +21,8 @@ export const User: React.FC<Props> = ({className}) => {
       {authAccount?.token && (
         <>
           <div className={styles.user__credential}>
-            <div className={styles.user__logo}><span>{authAccount.accounts[0].fullName.charAt(0)}</span></div>
-            <span className={styles.user__name}>{authAccount.accounts[0].username}</span>
+            <div className={styles.user__logo}><span>{userLogged.fullName.charAt(0)}</span></div>
+            <span className={styles.user__name}>{userLogged.username}</span>
             <Button 
               color='green'
               type='button'
@@ -33,9 +33,9 @@ export const User: React.FC<Props> = ({className}) => {
           </div>
           <aside className={`${styles.user__dropbox} ${openDropbox? styles.opened: ''}`}>
             <div className={styles.user__dropboxUser}>
-              <div className={styles.user__logo}><span>{authAccount.accounts[0].fullName.charAt(0)}</span></div>
-              <span className={styles.user__dropboxUsername}>{authAccount.accounts[0].username}</span>
-              <span className={styles.user__dropboxEmail}>{authAccount.accounts[0].email}</span>
+              <div className={styles.user__logo}><span>{userLogged.fullName.charAt(0)}</span></div>
+              <span className={styles.user__dropboxUsername}>{userLogged.username}</span>
+              <span className={styles.user__dropboxEmail}>{userLogged.email}</span>
             </div>
             <div className={styles.user__dropboxContent}>
               <Button 

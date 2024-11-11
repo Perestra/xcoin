@@ -12,10 +12,8 @@ import { getCurrencyCode } from '@/utils/getCurrencyCode'
 
 export const Favorites: React.FC = () => {
 
-    const { accounts } = useAccountContext()
-    const { authAccount } = useAuthAccountContext()
-    
-    const userLogged = accounts.filter(account => account.id === authAccount.accounts[0].id )[0]
+    const { userLogged } = useAuthAccountContext()
+    console.log(userLogged)
     
     const url = `/last/${userLogged.favorites.map(currency => `${currency.code}-${getCurrencyCode(userLogged.currency,0)}`).join(',')}`
     
