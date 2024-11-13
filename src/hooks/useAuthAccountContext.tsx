@@ -12,7 +12,9 @@ export const useAuthAccountContext = (): AuthContextType => {
     const { authAccount, setAuthAccount } = context
     const { accounts } = useAccountContext()
     
-    const userLogged = accounts.filter(account => account.id === authAccount.accounts[0].id )[0]
+    const userLogged = authAccount && authAccount.accounts
+        ? accounts.find(account => account.id === authAccount.accounts[0].id)
+        : null;
 
     return { authAccount, setAuthAccount, userLogged  }
 }
