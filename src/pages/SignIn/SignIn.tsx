@@ -47,11 +47,17 @@ export const SignIn: React.FC = () => {
                 </Formik>
                 <div className={styles.main__extras}>
                     <div className={styles.main__forgot}>
-                        <span>Esqueceu sua senha? <Link to="/forgotpassword">Clique aqui!</Link></span>
+                        <span>Esqueceu sua senha? <Link to="/forgotpassword" onClick={() => window.scrollTo(0,0)}>Clique aqui!</Link></span>
                     </div>
                     <div className={styles.main__create}>
                         <span>Não possui uma conta?</span>
-                        <Button color='blue' text='Registre-se' type='button' path='/createaccount'/>
+                        <Button 
+                            color='blue' 
+                            text='Registre-se' 
+                            type='button' 
+                            path='/createaccount' 
+                            onClick={() => window.scrollTo(0,0)}
+                        />
                     </div>
                 </div>
             </aside>

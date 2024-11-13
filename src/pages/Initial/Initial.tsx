@@ -17,7 +17,13 @@ export const Initial: React.FC = () => {
         <Header classNav='hidde' classUser='hidde' to='/'/>
         <div className={styles.initial__content}>
           <h1>Conectando o mundo, moeda por moeda</h1>
-          <Button text='Abra sua conta!' color='green' type='button' path='/signin'/>
+          <Button 
+            text='Abra sua conta!' 
+            color='green' 
+            type='button' 
+            path='/signin'
+            onClick={() => window.scrollTo(0,0)}
+          />
         </div>
       </div>
       <main className={styles.initial__main}>
@@ -50,7 +56,13 @@ export const Initial: React.FC = () => {
         </section>
         <div className={styles.initial__line}>
           <h1>Venha revolucionar o mundo das finanças conosco!</h1>
-          <Button text='Abra sua conta!' color='green' type='button' path='/signin'/>
+          <Button 
+            text='Abra sua conta!' 
+            color='green' 
+            type='button' 
+            path='/signin' 
+            onClick={() => window.scrollTo(0,0)}
+          />
         </div>
         <section className={styles.initial__app}>
             <div className={styles.initial__imgApp}>

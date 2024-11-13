@@ -72,12 +72,17 @@ export const CreateAccount: React.FC = () => {
                                 options={currencyList}
                                 placeholder='Selecione a sua moeda principal'
                             />
-                            <Button text='Criar conta' color='green' type='submit'/>
+                            <Button 
+                                text='Criar conta' 
+                                color='green' 
+                                type='submit'
+                                onClick={() => window.scrollTo(0,0)}
+                            />
                         </Form>
                     </Formik>
                 }
                 <div className={styles.main__extras}>
-                    <span>Já tem uma conta? <Link to="/signin">Clique aqui!</Link></span>
+                    <span>Já tem uma conta? <Link to="/signin" onClick={() => window.scrollTo(0,0)}>Clique aqui!</Link></span>
                 </div>
             </aside>
         </section>

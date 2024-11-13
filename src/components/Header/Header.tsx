@@ -35,7 +35,7 @@ export const Header: React.FC<Props> = ({bgColor, classNav, classUser, classLogi
         { to !== '/' && <Button icon={HiOutlineMenuAlt3} color='blue' type='button' onClick={() => toggleMenu()} /> }
           <div className={`${styles.header__nav} ${classNav} ${menuActive? styles.active: ''}`}>
             <NavLink className={classNav} onClick={() => toggleMenu()}/>
-            <User className={classUser}/>  
+            <User className={classUser} toggleMenu={toggleMenu}/>  
           </div>
         <span className={`${styles.header__login} ${classLogin}`}><Link to="/signin" role='link' aria-label='Entre ou cadastre-se' >Entre ou cadastre-se</Link></span>  
       </div>

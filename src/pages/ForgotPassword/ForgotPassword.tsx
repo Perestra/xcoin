@@ -36,9 +36,15 @@ export const ForgotPassword: React.FC = () => {
                             type='email'
                             placeholder='Digite sua conta de e-mail'
                         />    
-                        <Button text='Continuar' color='green' type='submit'/>
+                        <Button 
+                            text='Continuar' 
+                            color='green' 
+                            type='submit' 
+                            onClick={() => window.scrollTo(0,0)}
+                        />
                         <div className={styles.main__remember}>
-                            <span>Lembrou sua senha? <Link to="/signin">Clique aqui!</Link></span>
+                            <span>Lembrou sua senha? <Link to="/signin" onClick={() => window.scrollTo(0,0)}
+                            >Clique aqui!</Link></span>
                         </div>
                     </Form>
                 </Formik>

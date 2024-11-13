@@ -7,7 +7,7 @@ type Option = {
 }
 
 type Props = {
-  options: Option[];
+  options?: Option[];
   name: string;
   placeholder: string;
 }
