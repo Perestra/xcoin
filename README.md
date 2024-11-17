@@ -47,10 +47,10 @@ npm i chart.js
     - [X] Realizar validações de formulário utilizando Yup
 - [X] Desenvolver página de esqueci minha senha
     - [X] Realizar validações de formulário utilizando Yup
-- [ ] Desenvolver a página de variações 
-    - [ ] Utilizar Chart.js para criação dos gráficos
-- [ ] Desenvolver a página de Conversão
-    - [ ] Request na API via Axios
-- [ ] Desenvolver página de Favoritos
-- [ ] Desenvolver página de Erro
-- [ ] Responsividade
+- [X] Desenvolver a página de variações 
+    - [X] Utilizar Chart.js para criação dos gráficos
+- [X] Desenvolver a página de Conversão
+    - [X] Request na API via Axios
+- [X] Desenvolver página de Favoritos
+- [] Desenvolver página de Erro
+- [X] Responsividade
