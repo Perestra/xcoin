@@ -3,7 +3,7 @@ import styles from './UserIntroduction.module.scss'
 import { useAuthAccountContext } from '@/hooks/useAuthAccountContext'
 import { getCurrencyCode } from '@/utils/getCurrencyCode'
 
-export const UserIntroduction = () => {
+export const UserIntroduction: React.FC = () => {
 
     const { userLogged } = useAuthAccountContext()
     
@@ -17,8 +17,8 @@ export const UserIntroduction = () => {
 
   return (
     <div className={styles.info}>
-        <h2>Olá, <strong>{getName(userLogged.fullName)}</strong></h2>
-        <h3>Sua moeda principal é <strong>{getCurrencyCode(userLogged.currency, 0)}</strong></h3>  
+        {userLogged && <h2>Olá, <strong>{getName(userLogged.fullName)}</strong></h2>}
+        {userLogged && <h3>Sua moeda principal é <strong>{getCurrencyCode(userLogged.currency, 0)}</strong></h3>}
     </div>
   )
 }
