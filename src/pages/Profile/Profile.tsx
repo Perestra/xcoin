@@ -4,13 +4,33 @@ import { useAuthAccountContext } from '@/hooks/useAuthAccountContext'
 import { Header } from '@/components/Header/Header'
 import { Button } from '@/components/Button/Button'
 import { HiOutlineTrash } from "react-icons/hi2";
+import { MdOutlineModeEditOutline } from "react-icons/md";
 import { useAccountContext } from '@/hooks/useAccountContext';
 import { removeUserAccount } from '@/accounts/removeUserAccount';
+import { ModalConfirmation } from '@/components/ModalConfirmation/ModalConfirmation';
 
 export const Profile = () => {
 
   const { userLogged, setAuthAccount } = useAuthAccountContext()
   const { accounts, setAccounts } = useAccountContext()
+
+  const dialog = document.querySelector("dialog");
+
+  const deleteAccount = () => {
+    removeUserAccount(accounts, setAccounts, setAuthAccount, userLogged?.id)
+    dialog?.close()
+    window.document.body.classList.toggle('scroll-lock')
+  }
+
+  const closeModal = () => {
+    dialog?.close()
+    window.document.body.classList.toggle('scroll-lock')
+  }
+
+  const openModal = () => {
+    dialog?.showModal()
+    window.document.body.classList.toggle('scroll-lock')
+  }
 
   return (
     <div className={styles.content}>
@@ -34,23 +54,45 @@ export const Profile = () => {
                         <form className={styles.content__form}>
                             <div key={1} className={styles.content__input}>
                                 <label htmlFor="fullName">Nome completo</label>
-                                <input  type='text' value={userLogged?.fullName} name='fullName' disabled />
+                                <div className={styles.content__data}>
+                                    <input  type='text' value={userLogged?.fullName} id='fullName' autoComplete='true' disabled />
+                                </div>
                             </div>
                             <div key={2} className={styles.content__input}>
                                 <label htmlFor="username">Usuário</label>
-                                <input  type='text' value={userLogged?.username} name='username' disabled />
+                                <div className={styles.content__data}>
+                                    <input  type='text' value={userLogged?.username} id='username' autoComplete='true' disabled />
+                                </div>
                             </div>
                             <div key={3} className={styles.content__input}>
                                 <label htmlFor="email">E-mail</label>
-                                <input  type='email' value={userLogged?.email} name='email' disabled />
+                                <div className={styles.content__data}> 
+                                    <input  type='email' value={userLogged?.email} id='email' autoComplete='true' disabled />
+                                </div>
                             </div>
                             <div key={4} className={styles.content__input}>
                                 <label htmlFor="password">Senha</label>
-                                <input  type='password' value={userLogged?.password} name='password' disabled />
+                                <div className={styles.content__data}>
+                                    <input  type='password' value={userLogged?.password} id='password' autoComplete='true' disabled />
+                                    <Button 
+                                        color='blue' 
+                                        type='button' 
+                                        icon={MdOutlineModeEditOutline}
+                                        onClick={() => window.scrollTo(0,0)}
+                                    />
+                                </div>
                             </div>
                             <div key={5} className={styles.content__input}>
                                 <label htmlFor="currency">Moeda principal</label>
-                                <input  type='text' value={userLogged?.currency} name='currency' disabled />
+                                <div className={styles.content__data}>
+                                    <input  type='text' value={userLogged?.currency} id='currency' autoComplete='true' disabled />
+                                    <Button 
+                                        color='blue' 
+                                        type='button' 
+                                        icon={MdOutlineModeEditOutline}
+                                        onClick={() => window.scrollTo(0,0)}
+                                    />
+                                </div>
                             </div>
                         </form>
                     </div>
@@ -59,11 +101,16 @@ export const Profile = () => {
                         type='button' 
                         icon={HiOutlineTrash} 
                         text='Excluir conta' 
-                        onClick={ () => removeUserAccount(accounts, setAccounts, setAuthAccount, userLogged?.id)}
-                        path='/'
+                        onClick={() => openModal()}
                     />
                 </div>
             </section>
+            <ModalConfirmation 
+                action='excluir sua conta' 
+                confirmOnClick={() => deleteAccount()} 
+                cancelOnClick={() => closeModal()}
+                closeModal={closeModal}
+            />
         </main>
     </div>
   )

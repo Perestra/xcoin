@@ -7,6 +7,7 @@
     min-height: 100vh;
 
     &__main {
+        position: relative;
         width: 100%;
         max-width: 1280px;
         height: auto;
@@ -100,11 +101,16 @@
     &__input {
         width: 100%;
         height: auto;
+    }
 
+    &__data {
+        width: 100%;
+        height: auto;
         border-bottom: 1px solid var(--Green);
 
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
+        align-items: baseline;
         gap: 5px;
 
         & > label {
@@ -125,6 +131,26 @@
             font-size: 1rem;
             font-weight: 500;
             color: var(--LightGrey);
+        }
+
+        & > button {
+            background-color: transparent;
+            padding: 8px;
+            border-radius: 50%;
+            transition: all ease-in-out 0.2s;
+
+            &:hover {
+                background-color: var(--LightBlue);
+            }
+            &:hover > svg {
+                color: var(--White);
+            }
+
+            & > svg {
+                color: var(--LightBlue);
+                transition: all ease-in-out 0.2s;
+            }
+
         }
     }
 }
