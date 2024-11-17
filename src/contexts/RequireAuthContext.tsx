@@ -1,7 +1,7 @@
 import { isUserAuth } from "@/authentication/isUserAuth";
 import { useAccountContext } from "@/hooks/useAccountContext";
 import { useAuthAccountContext } from "@/hooks/useAuthAccountContext";
-import { SignIn } from "@/pages/SignIn/SignIn";
+import { Initial } from "@/pages/Initial/Initial";
 
 type Props = {
     children: React.ReactNode
@@ -13,7 +13,7 @@ export const RequireAuth: React.FC<Props> = ({ children }) => {
     const { authAccount } = useAuthAccountContext()
 
     if(!isUserAuth(accounts, authAccount)) {
-        return <SignIn />
+        return <Initial />
     }
 
     return children
