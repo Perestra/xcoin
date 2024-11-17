@@ -26,9 +26,9 @@ export const Routers = () => {
             <Route path='conversao' element={<RequireAuth><Exchange /></RequireAuth>} />
             <Route path='favoritos' element={<RequireAuth><Favorites /></RequireAuth>} />
             <Route path='profile' element={<RequireAuth><Profile /></RequireAuth>} />
-          </Routes>  
-          </AccountProvider>
-        <Footer />
+          </Routes>   
+          <Footer />
+        </AccountProvider>
       </AuthProvider>
     </BrowserRouter>
   )
