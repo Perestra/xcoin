@@ -19,17 +19,17 @@ export const Profile = () => {
   const deleteAccount = () => {
     removeUserAccount(accounts, setAccounts, setAuthAccount, userLogged?.id)
     dialog?.close()
-    window.document.body.classList.toggle('scroll-lock')
+    // window.document.body.classList.toggle('scroll-lock')
   }
 
   const closeModal = () => {
     dialog?.close()
-    window.document.body.classList.toggle('scroll-lock')
+    // window.document.body.classList.toggle('scroll-lock')
   }
 
   const openModal = () => {
     dialog?.showModal()
-    window.document.body.classList.toggle('scroll-lock')
+    // window.document.body.classList.toggle('scroll-lock')
   }
 
   return (
