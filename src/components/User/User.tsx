@@ -10,18 +10,19 @@ import { useState } from 'react';
 type Props = {
   className?: string;
   toggleMenu: () => void;
+  menuActive: boolean;
 }
 
-export const User: React.FC<Props> = ({className, toggleMenu}) => {
+export const User: React.FC<Props> = ({className, toggleMenu, menuActive}) => {
 
   const { authAccount, setAuthAccount, userLogged } = useAuthAccountContext()
   const [openDropbox, setOpenDropbox] = useState<boolean>(false)
 
   const logOut = () => {
-    if(toggleMenu) {
+    if(menuActive) {
       toggleMenu()
-      setAuthAccount(null)
     }
+    setAuthAccount(null)
   }
   
   return (
@@ -53,7 +54,7 @@ export const User: React.FC<Props> = ({className, toggleMenu}) => {
                 icon={VscSettings}
                 text='Configurações'
                 path='/profile'
-                onClick={ toggleMenu? () => toggleMenu(): undefined}
+                onClick={ menuActive? () => toggleMenu(): undefined}
               />
               <Button 
                 key={2}
