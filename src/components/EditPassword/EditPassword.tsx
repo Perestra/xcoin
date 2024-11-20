@@ -1,7 +1,7 @@
 import styles from './EditPassword.module.scss'
 
 import { Input } from '../Input/Input'
-import { Form, Formik, FormikHelpers } from 'formik'
+import { Form, Formik } from 'formik'
 import { EditPasswordSchema, initialValues } from '@/yupValidations/EditPasswordValidation'
 import { EditPasswordType } from '@/types/EditPasswordType'
 import { Button } from '../Button/Button'
