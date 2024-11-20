@@ -42,7 +42,7 @@ export const SignIn: React.FC = () => {
                             type='password'
                             placeholder='Digite sua senha'
                         />
-                        <Button text='Entrar' color='green' type='submit'/>
+                        <Button text='Entrar' color='green' type='submit' onClick={() => window.scrollTo(0,0)}/>
                     </Form>
                 </Formik>
                 <div className={styles.main__extras}>
