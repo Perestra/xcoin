@@ -2,15 +2,15 @@ import styles from './ModalConfirmation.module.scss'
 
 import { Button } from '../Button/Button';
 import { IoCheckmarkOutline, IoCloseOutline } from "react-icons/io5";
+import { closeModal } from '@/utils/modalAction';
 
 type Props = {
     action: string;
     confirmOnClick?: React.MouseEventHandler<HTMLButtonElement>;
     cancelOnClick?: React.MouseEventHandler<HTMLButtonElement>;
-    closeModal: () => void;
 }
 
-export const ModalConfirmation: React.FC<Props> = ({ action, confirmOnClick, cancelOnClick, closeModal}) => {
+export const ModalConfirmation: React.FC<Props> = ({ action, confirmOnClick, cancelOnClick }) => {
 
   return (
     <dialog className={styles.dialog}>
