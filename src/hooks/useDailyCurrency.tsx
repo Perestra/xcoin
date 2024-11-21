@@ -13,11 +13,14 @@ type DateCurrency = {
 export const useDailyCurrency = (graphCurrency: string) => {
   
   const { authAccount } = useAuthAccountContext()
+
   const [dateCurrency, setDateCurrency] = useState<DateCurrency[]>([])
 
-  const dailyData = useGetAPIData(AwsomeAPI, `daily/${getCurrencyCode(graphCurrency, 0)}-${getCurrencyCode(authAccount.accounts[0].currency, 0)}/15`)
+  const dailyData = useGetAPIData(AwsomeAPI, `daily/${getCurrencyCode(graphCurrency, 0)}-${getCurrencyCode(authAccount.accounts[0].currency, 0)}/15`)  
 
   useEffect(() => {
+    if (!dailyData.data) return
+
     const labels = new Set<DateCurrency['label']>()
     const newDateCurrency: DateCurrency[] = []
 
@@ -38,7 +41,6 @@ export const useDailyCurrency = (graphCurrency: string) => {
   const currency = dateCurrency.map( date => date.value ).reverse()
 
   return {
-    dailyData,
     date,
     currency,
   }

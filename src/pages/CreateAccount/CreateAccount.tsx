@@ -8,18 +8,18 @@ import { Link, useNavigate } from 'react-router-dom'
 import { initialValues, CreateAccountSchema } from '../../yupValidations/CreateAccountValidation'
 import { useAxios } from '../../hooks/useAxios'
 import { AwsomeAPI } from '../../api/EconomiaAwsomeAPI'
-import { useMemo } from 'react'
 import { CreateAccountType } from '../..//types/CreateAccountType'
 import { createAccount } from '@/accounts/createUserAccount'
 import { useAccountContext } from '@/hooks/useAccountContext'
+import { useCurrencyList } from '@/hooks/useCurrencyList'
 
 export const CreateAccount: React.FC = () => {
 
   const { accounts, setAccounts } = useAccountContext()
   const navigate = useNavigate()
 
-  const { data, loading } = useAxios<Record<string, string>>(AwsomeAPI, 'get', '/available/uniq')
-  const currencyList = useMemo( () => Object.entries(data??{}).map( ([key, value]) => ({label: value, value: key}) ), [data] )
+  const { loading } = useAxios<Record<string, string>>(AwsomeAPI, 'get', '/available/uniq')
+  const { currencyList } = useCurrencyList()
 
   return (
     <main className={styles.main}>

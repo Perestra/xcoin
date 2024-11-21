@@ -10,8 +10,9 @@ import { ModalConfirmation } from '@/components/ModalConfirmation/ModalConfirmat
 import { closeModal, deleteAccount, openModal } from '@/utils/modalAction';
 import { useState } from 'react';
 import { EditPassword } from '@/components/EditPassword/EditPassword';
+import { EditCurrency } from '@/components/EditCurrency/EditCurrency';
 
-export const Profile = () => {
+export const Profile: React.FC = () => {
 
   const { userLogged, setAuthAccount } = useAuthAccountContext()
   const { accounts, setAccounts } = useAccountContext()
@@ -101,9 +102,9 @@ export const Profile = () => {
             { layout === 'password' && 
                 <EditPassword setLayout={setLayout} />
             }
-            {/* { layout === 'currency' && 
-                <EditPassword setLayout={setLayout} />
-            } */}
+            { layout === 'currency' && 
+                <EditCurrency setLayout={setLayout} />
+            }
         </main>
     </div>
   )

@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useEffect, useMemo, useState } from "react"
 import { useGetAPIData } from "./useGetAPIData"
 import { AwsomeAPI } from "@/api/EconomiaAwsomeAPI"
 import { getCurrencyCode } from "@/utils/getCurrencyCode"
@@ -10,7 +10,7 @@ export const useCurrencyList = () => {
 
   const currencyData = useGetAPIData(AwsomeAPI, '/available/uniq')
   const combinationsData = useGetAPIData(AwsomeAPI, '/available')
-  
+
   const currencyList = useMemo( () => 
     Object.entries(currencyData.data??{}).map( ([key, value]) => ({label: value, value: key}) 
     ), [currencyData.data] )
@@ -26,11 +26,22 @@ export const useCurrencyList = () => {
         return currencyList.find( item => item.value == key )
       }))] 
   ), [currencyCombinations, currencyList] )
+  
+  const [graphCurrency, setGraphCurrency] = useState<string>('')
+
+  useEffect(() => {
+    if(getCurrencyCombination?.[0]) {
+      const firstCurrency = `${getCurrencyCombination?.[0]?.value} - ${getCurrencyCombination?.[0]?.label}`
+      setGraphCurrency(firstCurrency)
+    }
+  }, [getCurrencyCombination])
 
   return {
     currencyData,
     currencyList,
     getCurrencyCombination,
+    graphCurrency, 
+    setGraphCurrency
   }
 }
 

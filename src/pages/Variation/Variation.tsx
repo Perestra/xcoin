@@ -10,15 +10,13 @@ import { LuSearch } from "react-icons/lu";
 import { LineGraph } from '@/components/LineGraph/LineGraph'
 import { lineChartData, lineChartOptions } from '@/utils/LineChart'
 import { getCurrencyCode } from '@/utils/getCurrencyCode'
-import { useState } from 'react'
 import { useCurrencyList } from '@/hooks/useCurrencyList'
 import { useDailyCurrency } from '@/hooks/useDailyCurrency'
 
 export const Variation: React.FC = () => {
 
-  const [graphCurrency, setGraphCurrency] = useState<string>('USD - Dólar Americano')
-  const { dailyData, date, currency, } = useDailyCurrency(graphCurrency)
-  const { currencyData, getCurrencyCombination } = useCurrencyList()
+  const { currencyData, getCurrencyCombination, graphCurrency, setGraphCurrency } = useCurrencyList()
+  const { date, currency } = useDailyCurrency(graphCurrency || '')
 
   return (
     <div className={styles.content}>
@@ -51,7 +49,7 @@ export const Variation: React.FC = () => {
             </Formik>
           </div>}
         </section>
-        { !dailyData.loading && 
+        { currency && 
           <LineGraph 
             title={`Variação - ${getCurrencyCode(graphCurrency, 1)}`} 
             options={lineChartOptions} 

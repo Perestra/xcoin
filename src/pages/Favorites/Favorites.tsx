@@ -13,8 +13,11 @@ export const Favorites: React.FC = () => {
 
     const { userLogged } = useAuthAccountContext()
     
-    const url = `/last/${userLogged?.favorites.map(currency => `${currency.code}-${getCurrencyCode(userLogged?.currency,0)}`).join(',')}`
-    
+    const url = `/last/${userLogged?.favorites
+        .filter(currency => currency.code !== getCurrencyCode(userLogged?.currency,0))
+        .map(currency => `${currency.code}-${getCurrencyCode(userLogged?.currency,0)}`
+    ).join(',')}`
+
     const FavList = () => {
         if (!userLogged || userLogged.favorites.length === 0) null
         const { data } = useAxios(AwsomeAPI, 'get', url)
@@ -45,7 +48,7 @@ export const Favorites: React.FC = () => {
                                 key={index} 
                                 coin={(favorite.label.name).split('/')[0]} 
                                 code={favorite.label.code} 
-                                exchange={`${Number(favorite.label.bid).toFixed(2)} ${favorite.label.codein}`} 
+                                exchange={`${Number(favorite.label.bid).toFixed(3)} ${favorite.label.codein}`} 
                             />
                         ))
                     }
