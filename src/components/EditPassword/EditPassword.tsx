@@ -30,6 +30,7 @@ export const EditPassword: React.FC<Props> = ({ setLayout }) => {
   return (
     <section className={styles.section}>
         <h1>Alterar sua senha</h1>
+        <span>**Você será deslogado caso altere sua senha</span>
         <div className={styles.section__container}>
             <div className={styles.section__credential}>
                 <div className={styles.section__logo}><span>{userLogged?.fullName.charAt(0)}</span></div>
@@ -71,7 +72,7 @@ export const EditPassword: React.FC<Props> = ({ setLayout }) => {
                 </Form>
             </Formik>
             <div className={styles.section__extras}>
-                <span>Não quer alterar a senha?</span>
+                <span>Não quer alterar sua senha?</span>
                 <Button 
                     color='green'
                     type='button'
