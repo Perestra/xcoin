@@ -5,7 +5,6 @@ import {
     PointElement, 
     LineElement,
     Legend, 
-    scales
 } from 'chart.js'
 
 ChartJS.register(
