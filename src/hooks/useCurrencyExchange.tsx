@@ -1,7 +1,7 @@
 import { AwsomeAPI } from "@/api/EconomiaAwsomeAPI";
 import { useGetAPIData } from "./useGetAPIData";
 import { getCurrencyCode } from "@/utils/getCurrencyCode";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useAuthAccountContext } from "./useAuthAccountContext";
 
 type ExchangeCurrency = {
@@ -10,22 +10,33 @@ type ExchangeCurrency = {
     amount: string;
 }
 
-export const useCurrencyExchange = () => {
+export const useCurrencyExchange = (graphCurrency: string) => {
 
     const { authAccount } = useAuthAccountContext()
 
     const [exchangeValues, setExchangeValues] = useState<ExchangeCurrency>({
-        from: 'USD',
+        from: getCurrencyCode(graphCurrency, 0),
         to: getCurrencyCode(authAccount.accounts[0].currency, 0),
         amount: '1',
-    });
-    
-    const exchangeData = useGetAPIData(AwsomeAPI, `/${getCurrencyCode(exchangeValues.from, 0)}-${getCurrencyCode(exchangeValues.to, 0)}`)
+    })
+
+    const apiPath = exchangeValues.from? 
+    `/${getCurrencyCode(exchangeValues.from, 0)}-${getCurrencyCode(exchangeValues.to, 0)}`: null
+
+    const exchangeData = useGetAPIData(AwsomeAPI, apiPath || '')
 
     const exchangeCalc = (amount: string) => {
-        if (exchangeData.data) return (exchangeData.data[0].bid * parseFloat(amount.trim())).toFixed(2)
+        if (exchangeData?.data?.[0]) return (exchangeData.data[0].bid * parseFloat(amount.trim())).toFixed(2)
     }
 
-    return { exchangeValues, setExchangeValues, exchangeData, exchangeCalc }
+    useEffect(() => {
+        if (graphCurrency && graphCurrency !== '') {
+            setExchangeValues((prev) => ({
+                ...prev,
+                from: getCurrencyCode(graphCurrency, 0),
+            }));
+        }
+    }, [graphCurrency])
 
+    return { exchangeValues, setExchangeValues, exchangeData, exchangeCalc }
 }

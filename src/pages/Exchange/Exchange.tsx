@@ -14,12 +14,12 @@ import { timestampConversor } from '@/utils/timestampConversor'
 
 export const Exchange: React.FC = () => {
 
-  const { currencyData, currencyList } = useCurrencyList() 
-  const { exchangeValues, setExchangeValues, exchangeData, exchangeCalc } = useCurrencyExchange();
+  const { currencyData, currencyList, graphCurrency } = useCurrencyList() 
+  const { exchangeValues, setExchangeValues, exchangeData, exchangeCalc } = useCurrencyExchange(graphCurrency);
 
   const submitHandler = (value: { from: string; to: string; amount: string }) => {
     setExchangeValues(value); 
-  };
+  }
 
   const invertCurrency = (from: string, to: string, setFieldValue: FormikHelpers<{from: string; to: string}>['setFieldValue']) => {
     setFieldValue('from', to);
@@ -78,11 +78,11 @@ export const Exchange: React.FC = () => {
               
             </Formik>}
             <div className={styles.content__result}>
-              {exchangeData.data && !exchangeData.error && !exchangeData.loading && <h3>{exchangeValues.amount} {exchangeData.data[0].code} =</h3>}
-              {exchangeData.data && !exchangeData.error && !exchangeData.loading && <h2>{exchangeCalc(exchangeValues.amount)} {exchangeData.data[0].codein}</h2>}
-              {exchangeData.error && <h2>{exchangeData.error}</h2>}
+              {exchangeData?.data?.[0] && !exchangeData?.error && !exchangeData?.loading && <h3>{exchangeValues.amount} {exchangeData.data[0].code} =</h3>}
+              {exchangeData?.data?.[0] && !exchangeData?.error && !exchangeData?.loading && <h2>{exchangeCalc(exchangeValues.amount)} {exchangeData.data[0].codein}</h2>}
+              {exchangeData?.error && <h2>{exchangeData?.error}</h2>}
             </div>
-            {exchangeData.data && <span>Última atualização em {timestampConversor(exchangeData.data[0].timestamp)}</span>}
+            {exchangeData?.data?.[0] && <span>Última atualização em {timestampConversor(exchangeData.data[0].timestamp)}</span>}
           </div>
         </section>
       </main>
