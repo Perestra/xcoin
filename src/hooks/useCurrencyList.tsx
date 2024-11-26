@@ -17,7 +17,7 @@ export const useCurrencyList = () => {
   
   const currencyCombinations = useMemo( () => 
     Object.entries(combinationsData.data??{}).filter(([key]) => 
-        key.includes(`-${getCurrencyCode(authAccount.accounts[0].currency, 0)}`) 
+        key.includes(`-${getCurrencyCode(authAccount?.accounts?.[0]?.currency, 0)}`) 
     ), [combinationsData.data]) 
   
   const getCurrencyCombination = useMemo( () => (

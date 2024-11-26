@@ -1,7 +1,6 @@
 import { Form, Formik } from 'formik'
 import styles from './EditCurrency.module.scss'
 import { Select } from '../Select/Select'
-import { openModal } from '@/utils/modalAction'
 import { Button } from '../Button/Button'
 import { useAuthAccountContext } from '@/hooks/useAuthAccountContext'
 import { useAccountContext } from '@/hooks/useAccountContext'
@@ -58,7 +57,6 @@ export const EditCurrency: React.FC<Props> = ({ setLayout }) => {
                         color='green'
                         type='submit'
                         text='Alterar'
-                        onClick={() => openModal()}
                     />
                 </Form>
             </Formik>

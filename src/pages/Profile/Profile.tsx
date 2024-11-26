@@ -5,12 +5,11 @@ import { Header } from '@/components/Header/Header'
 import { Button } from '@/components/Button/Button'
 import { HiOutlineTrash } from "react-icons/hi2";
 import { MdOutlineModeEditOutline } from "react-icons/md";
-import { useAccountContext } from '@/hooks/useAccountContext';
-import { ModalConfirmation } from '@/components/ModalConfirmation/ModalConfirmation';
-import { closeModal, deleteAccount, openModal } from '@/utils/modalAction';
 import { useState } from 'react';
 import { EditPassword } from '@/components/EditPassword/EditPassword';
 import { EditCurrency } from '@/components/EditCurrency/EditCurrency';
+import { removeUserAccount } from '@/accounts/removeUserAccount';
+import { useAccountContext } from '@/hooks/useAccountContext';
 
 export const Profile: React.FC = () => {
 
@@ -89,14 +88,9 @@ export const Profile: React.FC = () => {
                             type='button' 
                             icon={HiOutlineTrash} 
                             text='Excluir conta' 
-                            onClick={() => openModal()}
+                            onClick={() => removeUserAccount(accounts, setAccounts, setAuthAccount, userLogged?.id)}
                         />
                     </div>
-                    <ModalConfirmation 
-                        action='excluir sua conta' 
-                        confirmOnClick={() => deleteAccount(accounts, setAccounts, setAuthAccount, userLogged?.id)} 
-                        cancelOnClick={() => closeModal()}
-                    />
                 </section> 
             }
             { layout === 'password' && 

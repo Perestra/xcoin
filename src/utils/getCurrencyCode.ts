@@ -1,5 +1,5 @@
 
 
 export const getCurrencyCode = (code: string, index: number) => {
-    return code.split(' - ')[index]
+    return code?.split?.(' - ')[index]
 }

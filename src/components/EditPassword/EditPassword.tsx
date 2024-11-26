@@ -5,7 +5,6 @@ import { Form, Formik } from 'formik'
 import { EditPasswordSchema, initialValues } from '@/yupValidations/EditPasswordValidation'
 import { EditPasswordType } from '@/types/EditPasswordType'
 import { Button } from '../Button/Button'
-import { openModal } from '@/utils/modalAction'
 import { Dispatch, SetStateAction } from 'react'
 import { editPassword, isUserPassword } from '@/accounts/editPassword'
 import { useAccountContext } from '@/hooks/useAccountContext'
@@ -67,7 +66,6 @@ export const EditPassword: React.FC<Props> = ({ setLayout }) => {
                         color='green'
                         type='submit'
                         text='Alterar'
-                        onClick={() => openModal()}
                     />
                 </Form>
             </Formik>

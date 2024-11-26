@@ -56,7 +56,7 @@ export const SignIn: React.FC = () => {
                             text='Registre-se' 
                             type='button' 
                             path='/createaccount' 
-                            onClick={() => console.log(scrollTo(0,0))}
+                            onClick={() => window.scrollTo(0,0)}
                         />
                     </div>
                 </div>
