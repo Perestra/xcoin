@@ -1,6 +1,7 @@
 # XCoin
 
 O XCoin é uma plataforma de finanças. Nele, é possível analisar as variações da moeda selecionada, converter moedas e adicionar moedas nos favoritos para ter uma conversão instantânea em relação a moeda principal do usuário.
+Para acessar a plataforma, [clique aqui](https://xcoin-ps.netlify.app/)
 
 # Integrações
 
@@ -40,13 +41,15 @@ npm i chart.js
 ```
 
 # RoadMap
-- A desenvolver
+- **PARA DESENVOLVER**
 - [ ] Modal de Notificação
 - [ ] Modal de Confirmação
+<br/>
 
-- Desenvolvendo
+- **DESENVOLVENDO**
+<br/>
 
-- Desenvolvido
+- **DESENVOLVIDO**
 - [X] Desenvolver página inicial
 - [X] Desenvolver página de login
     - [X] Realizar validações de formulário utilizando Yup
