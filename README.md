@@ -52,5 +52,7 @@ npm i chart.js
 - [X] Desenvolver a página de Conversão
     - [X] Request na API via Axios
 - [X] Desenvolver página de Favoritos
-- [] Desenvolver página de Erro
+- [X] Desenvolver página de Erro
+- [ ] Modal de Notificação
+- [ ] Modal de Confirmação
 - [X] Responsividade
