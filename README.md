@@ -40,6 +40,13 @@ npm i chart.js
 ```
 
 # RoadMap
+- A desenvolver
+- [ ] Modal de Notificação
+- [ ] Modal de Confirmação
+
+- Desenvolvendo
+
+- Desenvolvido
 - [X] Desenvolver página inicial
 - [X] Desenvolver página de login
     - [X] Realizar validações de formulário utilizando Yup
@@ -53,6 +60,4 @@ npm i chart.js
     - [X] Request na API via Axios
 - [X] Desenvolver página de Favoritos
 - [X] Desenvolver página de Erro
-- [ ] Modal de Notificação
-- [ ] Modal de Confirmação
 - [X] Responsividade
